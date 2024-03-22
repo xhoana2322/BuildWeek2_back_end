@@ -16,9 +16,9 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $categories = ['Horror', 'Fantasy', 'Fiction', 'Romance', 'Mystery', 'History'];
+        static $categories = ['Horror', 'Fantasy', 'Fiction', 'Romance', 'Mystery', 'History', 'Science', 'Art', 'Poetry', 'Dystopia'];
         return [
-            'CategoryName' => fake()->randomElement($categories),
+            'CategoryName' => array_shift($categories),
         ];
     }
 }
