@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class BookController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      */
@@ -22,17 +20,9 @@ class BookController extends Controller
             ->whereIn('status', ['pending', 'available'])
             ->get();
         $bookIds = $reservations->pluck('book_id')->toArray();
-        $books = Book::whereIn('id', $bookIds)->with('category')->get();
-        
-        return view('listalibri', ['books' => $books, 'reservations' => $reservations]);
+        $books = Book::whereIn('id', $bookIds)->get();
+        return view('mybooks', ['books' => $books, 'reservations' => $reservations]);
     }
-    
-
-
-
-
-
-
     /**
      * Show the form for creating a new resource.
      */
