@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
@@ -13,7 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+        $categories = Category::all();
+        $category = Category::find(id);
+        $books = Book::where('category_id', '=', $category->id)->get();
+        dd($books);
+        return view('homepage', ['categories' => $categories], ['books' => $books]);
     }
 
     /**
