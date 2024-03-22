@@ -5,9 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 px-3"> 
                 @foreach($books as $book)
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex mb-3">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-4 mx-4">
                         <div class="col-md-2 col-sm-3">
                             <img src="{{ $book->image }}" class="w-full h-auto p-3" alt="{{ $book->title }}">
                         </div>
@@ -48,5 +47,4 @@
                         </div>
                     </div>
                 @endforeach
-    </div>
 </x-app-layout>
