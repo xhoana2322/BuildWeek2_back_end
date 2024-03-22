@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <div class="container my-5">
+    <div class="container my-5 bg-light " >
         <div class="d-flex ">
 
             <!--  Book Image -->
