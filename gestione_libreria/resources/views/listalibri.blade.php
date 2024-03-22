@@ -1,59 +1,56 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Lista Libri') }}
+            {{ __('I miei libri') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-full mx-auto sm:px-6 lg:px-8"> 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+    <div class="">
+    <div class="">
                 @foreach($books as $book)
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex mb-3">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-4 mx-4">
                         <div class="col-md-2 col-sm-3">
                             <img src="{{ $book->image }}" class="w-full h-auto p-3" alt="{{ $book->title }}">
                         </div>
                         <div class="p-6 col-md-7 col-sm-7">
-                            <p class="font-semibold mb-2 h2">{{ $book->title }}</p>
-                            <p class="text-gray-700 mb-2 ">{{ $book->author->name }}</p>
-                            <p class="text-secondary mb-2 fs-6">
-                                @foreach($book->categories as $category)
-                                    {{ $category->name }}@if(!$loop->last),@endif
-                                @endforeach
+                            <p class="card-title font-semibold mb-2 h2">{{ $book->title }}</p>
+                            <p class="card-subtitle text-gray-700 mb-2 ">{{ $book->author->name }}</p>
+                            <p class="card-text text-secondary mb-2 fs-6">
+                          
                             </p>
                             <div
                             class="pt-2"
                             style="border-top: 1px solid rgb(229, 231, 235);">
                                 <p class="text-gray-700">{{ $book->plot }}</p>
                             </div>
+                            
+                            <div class="mt-2">
+                                <span class="{{ $book->AvailableAmount > 0 ? 'text-success' : 'text-secondary' }}">
+                                    {{ $book->AvailableAmount > 0 ? 'Available' : 'Not Available' }}
+                                </span>
+                            </div>
+
+                            <div>
+                                 <a href="{{ route('books.show', $book->id) }}"
+                                 class="mt-4 btn btn-warning">View Details</a>
+                            </div>
                         </div>
                         <div class="flex-column justify-between pt-4 col-md-3 col-sm-2">
                             
-                            <div class="pe-4 text-end d-flex align-items-center justify-content-end">
-                                @if ($book->status === "Available")
-                                    <i class="fas fa-circle text-success me-1"></i>
-                                    <span class="text-success">SINCERAMENTE TUOOOOOOOOOO</span>
-                                @else
-                                    <i class="fas fa-circle text-secondary me-1"></i>
-                                    <span class="text-secondary">QUANDO QUANDO QUANDO ANCHE SE A VOLTE</span>
-                                @endif
-                            </div>
+                          
                             <div style="height: 70%;"></div>
-                            @if ($book->status === "Available")
-                                <div class="row">
-                                    <div class="col-8"></div>
-                                    <button class="btn btn-outline-danger btn mr-2 mb-2 align-self-end col-3">
-                                       MI NASCONDO 
-                                </button>
+                            @if ($book->AvailableAmount  >0)
+                            <div class="card-footer bg-transparent border-success text-right m-4">
+                                <button class="btn btn-outline-success">Reserve</button>
+                            </div>
                             @endif
                             </div>
-                            <!-- <button class="btn btn-primary btn-sm mr-2 mb-2 hover:bg-blue-800 align-self-end">
-                                Button
-                            </button> -->
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
     </div>
+    </div>
+                <div class="d-flex justify-content-center my-4">
+                    {{ $books->links() }}
+                </div>
 </x-app-layout>
+
