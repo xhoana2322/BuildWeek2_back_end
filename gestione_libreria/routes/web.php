@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
+Route::get('/listalibri', [BookController::class, 'myBooks'])->name('listalibri.index');
 
 Route::resource('homepage', \App\Http\Controllers\CategoryController::class);
 
