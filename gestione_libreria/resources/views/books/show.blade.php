@@ -22,7 +22,7 @@
                 <p class="mb-3"><strong>Available copies:</strong> {{ $book->AvailableAmount ?? 'Not specified' }}</p>
 
                 @if ($book->AvailableAmount <= 0)
-                    <a href="#" class="btn btn-primary btn-sm disabled">Reserve</a>
+                    <a href="#" class="btn btn-seccondary btn-sm disabled">Reserve</a>
                 @else
                     <form action="{{ route('book.reserve', $book->id) }}" method="POST">
                         @csrf
