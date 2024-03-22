@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <div class="bg-dark>
     <x-app-layout>
         <div class="hero bg-primary" style="margin-top: 3rem; height: 30rem;">
             <!-- <div>
@@ -18,21 +19,21 @@
                     <div class="carousel-item active">
                         <div class="d-flex">
                             <div class="col-xs-2 col-md-2">
-                                <img src="https://picsum.photos/200/300" width="50rem" class="imagegrv bg-success">
+                                <img src="https://picsum.photos/200/300" width="400px" class="imagegrv bg-success">
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex">
                             <div class="col-xs-2 col-md-2">
-                                <img src="https://picsum.photos/200/301" width="50rem" class="imagegrv bg-warning">
+                                <img src="https://picsum.photos/200/301" width="400px" class="imagegrv bg-warning">
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex">
                             <div class="col-xs-2 col-md-2">
-                                <img src="https://picsum.photos/200/302" width="50rem" class="imagegrv bg-dark">
+                                <img src="https://picsum.photos/200/302" width="400px" class="imagegrv bg-dark">
                             </div>
                         </div>
                     </div>
@@ -51,32 +52,39 @@
         </div>
         <div class="container-fluid listaLibri">
             <section>
-                <div class="carosellobello">
-                    <x-cardHome />
-                </div>
-            </section>
-            <section>
                 <div>
                     <p class="h5 text-white mb-3 text-center text-sm-start">Categoria 1</p>
                 </div>
-            <div id="carouselExample" class="carousel slide d-none d-sm-block">
+            <div id="carouselCategory" class="carousel slide d-none d-sm-block">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <x-cardHome />
+                        <div class="d-flex">
+                            <x-cardHome />
+                            <x-cardHome />
+                            <x-cardHome />
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <x-cardHome />
+                        <div class="d-flex">
+                            <x-cardHome />
+                            <x-cardHome />
+                            <x-cardHome />
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <x-cardHome />
+                        <div class="d-flex">
+                            <x-cardHome />
+                            <x-cardHome />
+                            <x-cardHome />
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselExample"
+                <button class="carousel-control-prev text-dark" type="button" data-bs-target="#carouselCategory"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon me-5" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselExample"
+                <button class="carousel-control-next text-dark" type="button" data-bs-target="#carouselCategory"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon ms-5" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -85,6 +93,7 @@
             </section>
         </div>
     </x-app-layout>
+    </div>
 </body>
 
 </html>
