@@ -8,12 +8,15 @@ use App\Http\Requests\UpdateBookRequest;
 
 class BookController extends Controller
 {
+
+   
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $books = Book::get();
+        return view('books', ['books' => $books]);
     }
 
     /**
@@ -29,15 +32,18 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        //
+       //
     }
-
-    /**
-     * Display the specified resource.
+/**
+     * Display the specified book.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = Book::with('author')->findOrFail($id);
+        return view('books.show', compact('book'));
     }
 
     /**
