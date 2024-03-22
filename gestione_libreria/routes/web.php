@@ -35,15 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
     Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
     Route::post('/books/reserve/{bookId}', [ReservationController::class, 'reserve'])->name('book.reserve');
-
-    
+    Route::get('/mybooks', [BookController::class, 'mybooks'])->name('mybooks.index');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
 
 });
 
 Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
-
 Route::resource('homepage', \App\Http\Controllers\CategoryController::class);
 
 require __DIR__.'/auth.php';

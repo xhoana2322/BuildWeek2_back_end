@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\Reservation;
+
 use Illuminate\Database\Eloquent\Collection;
 
 class BookController extends Controller
 {
-
-   
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         $books = Book::with('author')->paginate(5);
        /*  return view('books', ['books' => $books]); */
     
@@ -57,6 +58,16 @@ class BookController extends Controller
 
     
 
+  public function myBooks()
+    {
+        $userId = auth()->id();
+        $reservations = Reservation::where('user_id', $userId)
+            ->whereIn('status', ['pending', 'available'])
+            ->get();
+        $bookIds = $reservations->pluck('book_id')->toArray();
+        $books = Book::whereIn('id', $bookIds)->get();
+        return view('mybooks', ['books' => $books, 'reservations' => $reservations]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -70,9 +81,9 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-       //
+        //
     }
-/**
+    /**
      * Display the specified book.
      *
      * @param  int  $id
