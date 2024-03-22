@@ -5,9 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-full mx-auto sm:px-6 lg:px-8"> 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+    <div class="py-12 px-3"> 
                 @foreach($books as $book)
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex mb-3">
                         <div class="col-md-2 col-sm-3">
@@ -47,13 +45,8 @@
                                 </button>
                             @endif
                             </div>
-                            <!-- <button class="btn btn-primary btn-sm mr-2 mb-2 hover:bg-blue-800 align-self-end">
-                                Button
-                            </button> -->
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
     </div>
 </x-app-layout>
