@@ -42,4 +42,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
+Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
+
 require __DIR__.'/auth.php';
