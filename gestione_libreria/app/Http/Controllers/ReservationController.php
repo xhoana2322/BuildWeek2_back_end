@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
+use App\Models\Book;
+use Illuminate\Http\Client\Request;
 
 class ReservationController extends Controller
 {
@@ -63,4 +65,21 @@ class ReservationController extends Controller
     {
         //
     }
+
+    /**
+     * Handle the reservation of a book.
+     *
+     * @param  Request  $request
+     * @param  int  $bookId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function reserve(Request $request, $bookId)
+    {
+        $book = Book::findOrFail($bookId);
+        if ($book->AvailableAmount > 0) {
+            $book->AvailableAmount --;
+            $book->save();
+
+        return back()->with('success', 'Your request for"'. $book->title . '"is pending until approved!');
+        }}
 }
