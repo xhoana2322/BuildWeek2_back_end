@@ -14,15 +14,15 @@
                             <p class="font-semibold mb-2 h2">{{ $book->title }}</p>
                             <p class="text-gray-700 mb-2 ">{{ $book->author->name }}</p>
                             <p class="text-secondary mb-2 fs-6">
-                                @foreach($book->categories as $category)
-                                    {{ $category->name }}@if(!$loop->last),@endif
-                                @endforeach
+                          
                             </p>
                             <div
                             class="pt-2"
                             style="border-top: 1px solid rgb(229, 231, 235);">
                                 <p class="text-gray-700">{{ $book->plot }}</p>
                             </div>
+                                 <a href="{{ route('books.show', $book->id) }}">View Details</a>
+                            
                         </div>
                         <div class="flex-column justify-between pt-4 col-md-3 col-sm-2">
                             
