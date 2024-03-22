@@ -14,12 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $books=Book::all();
+        $categories=Category::all();
 
-        $categories = Category::all();
-        $category = Category::find(id);
-        $books = Book::where('category_id', '=', $category->id)->get();
-        dd($books);
-        return view('homepage', ['categories' => $categories], ['books' => $books]);
+        return view('homepage', ['books' => $books, 'categories' => $categories]);
     }
 
     /**
