@@ -49,7 +49,7 @@
                 @endforeach
     </div>
     </div>
-                <div class="d-flex justify-content-center my-4">
+                <div class="d-flex flex-column menu_fine">
                     {{ $books->links() }}
                 </div>
 </x-app-layout>

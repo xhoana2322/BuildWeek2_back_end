@@ -48,12 +48,12 @@
 
 
 
-<div class="container-fluid listaLibri">
+<div class="container-fluid listaLibri mt-5">
     <!-- <div class="hero bg-primary" style="margin-top: 3rem; height: 30rem;"> -->
         <!-- Carousel -->
         @if ($categories->count() > 0)
             @foreach ($categories as $category)
-            <p class="h5 my-2 text-center text-sm-start">{{ $category->CategoryName }}</p>
+            <p class="h1 mt-3 text-center text-sm-start nome_carosello">{{ $category->CategoryName }}</p>
                 <div id="carouselCategory{{ $category->id }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         @php
@@ -63,17 +63,17 @@
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                 <div class="d-flex">
                                     @foreach ($chunk as $book)
-                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3">
-                                            <img src="{{ $book->image }}" class="card-img-top border" alt="...">
+                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 mx-3 libroCard">
+                                            <img src="{{ $book->image }}" class="card-img-top rounded-2 immagine_card" alt="...">
                                             <div class="card-body">
                                                 <div class="mb-1 border-bottom">
                                                     <p class="card-title fw-bold h5">{{ $book->title }}</p>
                                                     <p class="card-subtitle mb-2 text-muted h6">{{ $book->author->name }}</p>
                                                 </div>
                                                 <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
-                                                <a href="#" class="btn btn-primary">Scopri di più</a>
+                                                <a href="#" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
                                                 <div class="mt-2 d-flex justify-content-between align-items-center">
-                                                    <a href="#" class="btn btn-primary">Prenota</a>
+                                                    <a href="#" class="btn btn-primary tasto_prenota">Prenota</a>
                                                     <p class="text-success fw-bold">Disponibile</p>
                                                 </div>
                                             </div>

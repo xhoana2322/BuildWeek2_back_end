@@ -13,7 +13,7 @@ Palette e utilizzo dei colori:
 
 body {
     background-color: #468189 !important;
-    background-attachment: fixed;
+    min-height: 100vh !important;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -91,20 +91,23 @@ body {
     background-color: transparent !important;
     border-radius: 0rem 1rem 0rem 1rem !important;
     border: solid 2px #ECFAFF !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
 }
 
 .navDropdown:hover {
     color: #ECFAFF !important;
     border: solid 2px #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #ECFAFF !important;
 }
 
 .navDropdown:focus {
     color: #F87060 !important;
     border: solid 2px #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #F87060 !important;
 }
 
 .dropdownGroupNav div > div:nth-child(2) {
-    margin-top: 0.9rem !important;
+    margin-top: 1rem !important;
     border: none !important;
     border-radius: 0rem 0rem 1rem 1rem !important;
     box-shadow: none !important;
@@ -119,6 +122,7 @@ body {
     padding-top: 0.7rem !important;
     box-sizing: border-box;
     padding-left: 1rem !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
 .dropdownGroupNav div > div:nth-child(2) div a {
@@ -144,6 +148,7 @@ body {
     margin-top: 0 !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
+    overflow: hidden !important;
 }
 
 .headerClass div {
@@ -183,8 +188,10 @@ body {
 
 .cardBook img {
     border-radius: 0rem 2rem 0rem 2rem !important;
-    border: solid 0.7rem #468189 !important;
+    border: solid 0.5rem #468189 !important;
     padding: 0 !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
 .cardBook .card-title {
@@ -200,7 +207,7 @@ body {
 }
 
 .detailButton {
-    background-color: #F87060 !important;
+    background-color: #468189 !important;
     color: #ECFAFF !important;
     border: none !important;
     padding: 0.6rem 1rem 0.6rem 1rem !important;
@@ -208,7 +215,7 @@ body {
 }
 
 .detailButton:hover {
-    background-color: #468189 !important;
+    background-color: #F87060 !important;
 }
 
 .reserveButton {
@@ -225,6 +232,98 @@ body {
     border: solid 2px #F87060 !important;
 }
 
+/* CSS per il meù scelta infondo alla pagina lista libri*/
+
+
+/*
+Palette e utilizzo dei colori:
+
+- sfondo: #CDD7D6
+- testi scuri: #102542
+- testi chiari: #ECFAFF
+- decorazioni e link: #F87060
+- Background Navbar, titoli: #468189
+
+*/
+
+.menu_fine > nav > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a {
+    background-color: transparent !important;
+    color: #ECFAFF !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:first-child span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span a:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a:hover {
+    color: #F87060 !important;
+    border: #F87060 solid 1px !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child {
+    border: #F87060 solid 1px !important;
+}
+
+
+/* CSS per l'homepage. */
+
+.libroCard {
+    border-radius: 0 2rem 0 2rem !important;
+    background: rgb(236,250,255) !important;
+    background: linear-gradient(0deg, rgba(236,250,255,1) 63%, rgba(70,129,137,1) 64%) !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    
+    
+}
+
+.immagine_card{ 
+    border: solid 0.5rem #468189 !important;
+    border-radius: 0 2rem 0 2rem !important;
+    box-shadow: 0 0.3rem 0 0 #F87060 !important;
+}
+
+.nome_carosello {
+  color: #ECFAFF;
+  border-bottom: solid 2px #F87060;
+  border-radius: 0 0 0 2rem !important;
+  padding-left: 2rem;
+  padding-bottom: 0.3rem;
+}
+
+.tasto_prenota, .tasto_dettaglio {
+    min-width: 8rem !important;
+    border-radius: 0 1.5rem 0 1.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.tasto_dettaglio {
+    background-color: #468189 !important;
+    color: #ECFAFF !important;
+    border: none !important;
+}
+
+.tasto_dettaglio:hover {
+    background-color: #F87060 !important;
+}
+
+.tasto_prenota {
+    background-color: transparent !important;
+    color: #F87060 !important;
+    border: solid 2px #F87060 !important;
+}
+
+.tasto_prenota:hover {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+}
+
 
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -232,7 +331,7 @@ body {
 
 /*Visibile in small devices*/
 @media (max-width: 768px) {
-    .menuNav {
+    .menuNav, .menu_fine > nav > div:nth-child(2) {
         display: none !important;
     }
 }
