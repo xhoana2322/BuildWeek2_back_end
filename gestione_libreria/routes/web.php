@@ -47,7 +47,6 @@ Route::resource('homepage', CategoryController::class);
 
 Route::resource('admin', RegisteredUserController::class);
 Route::get('/admin/{id}/confirmReservation', [RegisteredUserController::class, 'confirmReservation'])->name('admin.confirmReservation');
-Route::get('/admin/{id}/rejectReservation', [RegisteredUserController::class, 'rejectReservation'])->name('admin.rejectReservation');
-
+Route::delete('/admin/{id}/rejectReservation', [RegisteredUserController::class, 'rejectReservation'])->name('admin.rejectReservation');
 
 require __DIR__.'/auth.php';
