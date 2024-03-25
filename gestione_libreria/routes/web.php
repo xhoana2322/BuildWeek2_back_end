@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
@@ -43,5 +44,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
 Route::resource('homepage', \App\Http\Controllers\CategoryController::class);
+
+Route::resource('admin', RegisteredUserController::class);
 
 require __DIR__.'/auth.php';
