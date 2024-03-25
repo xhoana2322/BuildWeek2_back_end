@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -48,4 +48,49 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    // Funzione che restituisce la lista degli utenti
+    public function index(Request $request)
+    {
+        $users = User::all();
+
+        // Controllo se l'utente è un admin
+        if (Auth::user()->is_admin == '1') {
+            return view('admin', ['users' => $users]);
+        } else {
+            return view('dashboard', ['users' => $users]);
+        }
+    }
+
+    // Funzione che elimina un utente
+    public function destroy(Request $request, $id)
+    {
+        // Cerco l'utente da eliminare e pouf!
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        // Torno alla lista degli utenti
+        return redirect()->back()->with('success', 'User deleted successfully');
+    }
+
+    // Funzione che modifica un utente
+    public function edit(Request $request, $id) {
+
+        // Cerco l'utente da modificare
+        $user = User::findOrFail($id);
+        return view('users-update', ['user' => $user]);
+        
+    }
+
+    // Funzione che aggiorna un utente
+    public function update(Request $request, $id) {
+
+        $data = $request->only('name', 'email', 'password', 'is_admin');
+        $user = User::findOrFail($id)->update($data);
+
+        return redirect()->route('admin.index', ['user' => $user])->with('success', 'Utente aggiornato con successo!');
+
+        }
+
+
 }
