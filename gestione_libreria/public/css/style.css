@@ -225,6 +225,82 @@ body {
     border: solid 2px #F87060 !important;
 }
 
+/* CSS per il meù scelta infondo alla pagina lista libri*/
+
+
+/*
+Palette e utilizzo dei colori:
+
+- sfondo: #CDD7D6
+- testi scuri: #102542
+- testi chiari: #ECFAFF
+- decorazioni e link: #F87060
+- Background Navbar, titoli: #468189
+
+*/
+
+.menu_fine > nav > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+}
+
+
+/* CSS per l'homepage. */
+
+.libroCard {
+    border-radius: 0 2rem 0 2rem !important;
+    background: rgb(236,250,255) !important;
+    background: linear-gradient(0deg, rgba(236,250,255,1) 63%, rgba(70,129,137,1) 64%) !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    
+    
+}
+
+.immagine_card{ 
+    border: solid 0.5rem #468189 !important;
+    border-radius: 0 2rem 0 2rem !important;
+    box-shadow: 0 0.3rem 0 0 #F87060 !important;
+}
+
+.nome_carosello {
+  color: #ECFAFF;
+  border-bottom: solid 2px #F87060;
+  border-radius: 0 0 0 2rem !important;
+  padding-left: 2rem;
+  padding-bottom: 0.3rem;
+}
+
+.tasto_prenota, .tasto_dettaglio {
+    min-width: 8rem !important;
+    border-radius: 0 1.5rem 0 1.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.tasto_dettaglio {
+    background-color: #468189 !important;
+    color: #ECFAFF !important;
+    border: none !important;
+}
+
+.tasto_dettaglio:hover {
+    background-color: #F87060 !important;
+}
+
+.tasto_prenota {
+    background-color: transparent !important;
+    color: #F87060 !important;
+    border: solid 2px #F87060 !important;
+}
+
+.tasto_prenota:hover {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+}
+
 
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
