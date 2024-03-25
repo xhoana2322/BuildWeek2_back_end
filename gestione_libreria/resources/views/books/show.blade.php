@@ -83,6 +83,8 @@
 <x-app-layout>
     <div class="d-flex h-55vh w-100 items-center justify-content-between px-10 my-4">
         <div class="max-w-4xl mx-auto px-6 px-lg-8">
+
+        <!-- TODO:allarm mesage -->
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div class="container row">
                     <!-- Book Image -->
@@ -134,28 +136,28 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                        @if ($book->AvailableAmount > 0 && !in_array($book->id, $userPendingReservations))
-                            <form action="{{ route('reservation.store') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="book_id" value="{{ $book->id }}">
-                            <button type="submit" class="btn btn-warning tasto_dettaglio w-50 p-2 mt-3 spec">
-                                Reserve Now
-                                <span class="wrap" aria-hidden="true">
-                                    <span class="particle" style="--a: -45deg; --x: 53%; --y: 15%; --d: 4em; --f: .7; --t: .15"></span>
-                                    <span class="particle" style="--a: 150deg; --x: 40%; --y: 70%; --d: 7.5em; --f: .8; --t: .08"></span>
-                                    <span class="particle" style="--a: 10deg; --x: 90%; --y: 65%; --d: 7em; --f: .6; --t: .25"></span>
-                                    <span class="particle" style="--a: -120deg; --x: 15%; --y: 10%; --d: 4em"></span>
-                                    <span class="particle" style="--a: -175deg; --x: 10%; --y: 25%; --d: 5.25em; --f: .6; --t: .32"></span>
-                                    <span class="particle" style="--a: -18deg; --x: 80%; --y: 25%; --d: 4.75em; --f: .5; --t: .4"></span>
-                                    <span class="particle" style="--a: -160deg; --x: 30%; --y: 5%; --d: 9em; --f: .9; --t: .5"></span>
-                                    <span class="particle" style="--a: 175deg; --x: 9%; --y: 30%; --d: 6em; --f: .95; --t: .6"></span>
-                                    <span class="particle" style="--a: -10deg; --x: 89%; --y: 25%; --d: 4.5em; --f: .55; --t: .67"></span>
-                                    <span class="particle" style="--a: -140deg; --x: 40%; --y: 10%; --d: 5em; --f: .85; --t: .75"></span>
-                                    <span class="particle" style="--a: 90deg; --x: 45%; --y: 65%; --d: 4em; --f: .5; --t: .83"></span>
-                                    <span class="particle" style="--a: 30deg; --x: 70%; --y: 80%; --d: 6.5em; --f: .75; --t: .92"></span>
-                                </span>
-                            </button>
-                            </form>
+                            @if ($book->AvailableAmount > 0 && !in_array($book->id, $userPendingReservations))
+                                <form action="{{ route('reservation.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                    <button type="submit" class="btn btn-warning tasto_dettaglio w-50 p-2 mt-3 spec">
+                                        Reserve Now
+                                        <span class="wrap" aria-hidden="true">
+                                            <span class="particle" style="--a: -45deg; --x: 53%; --y: 15%; --d: 4em; --f: .7; --t: .15"></span>
+                                            <span class="particle" style="--a: 150deg; --x: 40%; --y: 70%; --d: 7.5em; --f: .8; --t: .08"></span>
+                                            <span class="particle" style="--a: 10deg; --x: 90%; --y: 65%; --d: 7em; --f: .6; --t: .25"></span>
+                                            <span class="particle" style="--a: -120deg; --x: 15%; --y: 10%; --d: 4em"></span>
+                                            <span class="particle" style="--a: -175deg; --x: 10%; --y: 25%; --d: 5.25em; --f: .6; --t: .32"></span>
+                                            <span class="particle" style="--a: -18deg; --x: 80%; --y: 25%; --d: 4.75em; --f: .5; --t: .4"></span>
+                                            <span class="particle" style="--a: -160deg; --x: 30%; --y: 5%; --d: 9em; --f: .9; --t: .5"></span>
+                                            <span class="particle" style="--a: 175deg; --x: 9%; --y: 30%; --d: 6em; --f: .95; --t: .6"></span>
+                                            <span class="particle" style="--a: -10deg; --x: 89%; --y: 25%; --d: 4.5em; --f: .55; --t: .67"></span>
+                                            <span class="particle" style="--a: -140deg; --x: 40%; --y: 10%; --d: 5em; --f: .85; --t: .75"></span>
+                                            <span class="particle" style="--a: 90deg; --x: 45%; --y: 65%; --d: 4em; --f: .5; --t: .83"></span>
+                                            <span class="particle" style="--a: 30deg; --x: 70%; --y: 80%; --d: 6.5em; --f: .75; --t: .92"></span>
+                                        </span>
+                                    </button>
+                                </form>
                             @endif
                         </div>
                     </div>
@@ -186,7 +188,6 @@
                                                                     <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
                                                                 </div>
                                                                 <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
-                                                                <!-- Add more actions or details if needed -->
                                                             </div>
                                                         </div>
                                                     @endforeach
