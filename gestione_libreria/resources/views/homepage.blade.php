@@ -61,7 +61,14 @@
                                 <div class="d-flex">
                                     @foreach ($chunk as $book)
                                         <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3">
-                                            <img src="{{ $book->image }}" class="card-img-top border" alt="...">
+                                        @php
+                                            $image_url = $book->image;
+                                            $image_info = @getimagesize($image_url);
+                                        @endphp
+
+                                        @if ($image_info !== false)
+                                            <img src="{{ $image_url }}"  class="card-img-top border" alt="{{ $book->title }}">
+                                        @endif
                                             <div class="card-body">
                                                 <div class="mb-1 border-bottom">
                                                     <p class="card-title fw-bold h5">{{ $book->title }}</p>

@@ -8,9 +8,16 @@
     <div class="">
                 @foreach($books as $book)
                     <div class="cardBook bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-2 mx-4">
-                        <div class="col-md-2 col-sm-3">
-                            <img src="{{ $book->image }}" class="w-full h-auto p-3" alt="{{ $book->title }}">
-                        </div>
+                    <div class="col-md-2 col-sm-3">
+                        @php
+                            $image_url = $book->image;
+                            $image_info = @getimagesize($image_url);
+                        @endphp
+
+                        @if ($image_info !== false)
+                            <img src="{{ $image_url }}" class="w-full h-auto p-3" alt="{{ $book->title }}">
+                        @endif
+                    </div>
                         <div class="p-6 col-md-7 col-sm-7">
                             <p class="card-title font-semibold mb-2 h2">{{ $book->title }}</p>
                             <p class="card-subtitle text-gray-700 mb-2 ">{{ $book->author->name }}</p>
