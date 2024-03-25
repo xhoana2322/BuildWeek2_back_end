@@ -87,8 +87,8 @@
                 <div class="container row">
                     <!-- Book Image -->
                     <div class="col-12 col-md-6 col-lg-4 m-2 d-flex justify-content-center bg-fixed">
-                        <img src="{{ $book->image }}" alt="{{ $book->title }}" loading="lazy" class="inset-0 ms-auto w-75 h-100 rounded-bottom-start object-cover object-center mx-2">
-                        <span class="absolute ">{{ $book->category->CategoryName ?? 'Category not available' }}</span>
+                        <img src="{{ $book->image }}" alt="{{ $book->title }}" loading="lazy" class="inset-0 ms-auto w-100 h-100 rounded-bottom-start object-cover object-center mx-2">
+                       
                     </div>
                     <!-- Book Details -->
                     <div class="col-12 col-md-6 col-lg-6 container my-4 mx-auto mt-28">
@@ -114,15 +114,21 @@
                                 <div class="pt-3">
                                     <h3 class="text-xl font-weight-bold text-gray-900">Plot</h3>
                                     <p class="mt-2 text-base text-gray-600">{{ $book->plot ?? 'Plot details not available.' }}</p>
-                                    <div class="d-flex gap-6 mt-6">
-                                             <p class="font-sans font-normal leading-relaxed text-gray-900 mb-2">
+                                    <div class="d-flex justify-content-center align-content-center mt-6">
+                                            <p class="font-sans font-normal leading-relaxed text-gray-900 mb-2">
                                                 <span>{{ $book->category->CategoryName ?? 'Category not available' }}</span>
                                             </p>
-
+                                            <p> | </p>
+                                            <!-- <i class="bi bi-dot"></i> -->
                                             <p class="font-sans  font-normal leading-relaxed text-gray-900 mb-4">
-                                            
-                                            <span>{{ $book->pages ?? 'Not specified' }}</span>
-                                            <span class="font-weight-bold">pages</span>
+                                                <span>{{ $book->pages ?? 'Not specified' }}</span>
+                                                <span class="font-weight-bold">pages</span>
+                                            </p>
+                                            <p> | </p>
+                                            <!-- <i class="bi bi-dot"></i> -->
+                                            <p class="font-sans font-normal text-sm leading-relaxed text-gray-900 mb-4 ">
+                                                <span class="font-weight-bold">Available:</span>
+                                                <span>{{ $book->AvailableAmount ?? 'Not specified' }}</span>
                                             </p>
                                     </div>
                                    
@@ -151,16 +157,55 @@
                         </div>
                     </div>
                 </div>
-                <!-- Book Plot/Description -->
-                <div class="row m-3">
-                    
-                    <div class="col-6">
-                    <p class="text-xl font-weight-bold text-gray-900">You may also like 
-                        </p>
-                        
+                 <!-- Book Plot/Description -->
+<div class="row m-3">
+    <div class="col-12">
+        <p class="text-xl font-weight-bold text-gray-900 text-center">You might also like</p>
+        <div class="container-fluid listaLibri mt-5">
+                @php
+                    // Get books of the same category
+                    $relatedBooks = App\Models\Book::where('category_id', $book->category_id)
+                                        ->where('id', '!=', $book->id) 
+                                        ->get();
+                @endphp
+            @if ($relatedBooks->count() > 0)
+                <div id="carouselRelatedBooks" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($relatedBooks->chunk(5) as $index => $chunk)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <div class="d-flex justify-content-center">
+                                    @foreach ($chunk as $relatedBook)
+                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
+                                            <img src="{{ $relatedBook->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $relatedBook->title }}">
+                                            <div class="card-body">
+                                                <div class="mb-1 border-bottom">
+                                                    <p class="card-title fw-bold h5">{{ $relatedBook->title }}</p>
+                                                    <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
+                                                </div>
+                                                <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
+                                                <!-- Add more actions or details if needed -->
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselRelatedBooks" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselRelatedBooks" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-            </div>
+            @else
+                <p>No similar books found.</p>
+            @endif
         </div>
     </div>
+</div>
+
+             
 </x-app-layout>

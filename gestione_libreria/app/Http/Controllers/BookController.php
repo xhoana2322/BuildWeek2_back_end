@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\Category;
 use App\Models\Reservation;
 
 use Auth;
@@ -61,7 +62,10 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::with('author')->findOrFail($id);
-        return view('books.show', compact('book'));
+        $categoryId = $book->pluck('category_id')->toArray();
+        $category = Book::where('category_id', $categoryId)->get();
+
+        return view('books.show', compact('book', 'category'));
     }
 
     /**
