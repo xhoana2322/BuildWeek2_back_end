@@ -26,10 +26,13 @@
                         {{ __('Bookshelf') }}
                     </x-nav-link>
 
-                    @if (Auth::user()->is_admin == 1)
-                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" class="linkNav">
-                        {{ __('Reservations') }}
-                    </x-nav-link>
+
+                    @if (Auth::check())
+                        @if (Auth::user()->is_admin == 1)
+                            <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" class="linkNav">
+                                {{ __('Reservations') }}
+                            </x-nav-link>
+                        @endif
                     @endif
                 </div>
             </div>

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Models\Reservation;
 
+use Auth;
 use Illuminate\Database\Eloquent\Collection;
 
 class BookController extends Controller
@@ -52,8 +53,11 @@ class BookController extends Controller
  */
     
         /*$books = $DBbooks; ->concat($dummyBooks); */
-
+        if (Auth::check()) {
         return view('listalibri', ['books' => $books]);
+        } else {
+        return view('auth.login');
+        }
     }
 
     
