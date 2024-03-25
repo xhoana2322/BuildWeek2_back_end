@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Models\Reservation;
-
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -17,17 +18,22 @@ class BookController extends Controller
      */
     public function index()
     {
+        $userId = auth()->id();
         $books = Book::with('author')->paginate(5);
+        $userPendingReservations = Reservation::where('user_id', $userId)
+            ->whereIn('status', ['pending', 'available'])
+            ->pluck('book_id') // Pluck only book IDs
+            ->toArray(); // Convert the collection to an array
+
         if (Auth::check()) {
-        return view('listalibri', ['books' => $books]);
+            return view('listalibri', ['books' => $books, 'userPendingReservations' => $userPendingReservations]);
         } else {
-        return view('auth.login');
+            return view('auth.login');
         }
     }
 
-    
 
-  public function myBooks()
+    public function myBooks()
     {
         $userId = auth()->id();
         $reservations = Reservation::where('user_id', $userId)
@@ -37,6 +43,17 @@ class BookController extends Controller
         $books = Book::whereIn('id', $bookIds)->get();
         return view('mybooks', ['books' => $books, 'reservations' => $reservations]);
     }
+
+    public function return($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $book = $reservation->book;
+        if ($book) {
+            $book->increment('AvailableAmount');
+        }
+        $reservation->delete();
+        return redirect()->back()->with('success', 'Reservation returned successfully.');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -45,12 +62,21 @@ class BookController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        //
+        $user_id = Auth::id();
+        Reservation::create([
+            'user_id' => $user_id,
+            'book_id' => $request->book_id,
+            'status' => 'Pending',
+        ]);
+
+        $book = Book::find($request->book_id);
+        if ($book) {
+            $book->decrement('AvailableAmount');
+        }
+
+        return redirect()->back()->with('success', 'Reservation request submitted successfully.');
     }
     /**
      * Display the specified book.
