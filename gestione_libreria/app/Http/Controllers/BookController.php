@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\Category;
 use App\Models\Reservation;
 
 use Auth;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -48,9 +50,21 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        //
+        $user_id = Auth::id();
+        Reservation::create([
+            'user_id' => $user_id,
+            'book_id' => $request->book_id,
+            'status' => 'Pending',
+        ]);
+
+        $book = Book::find($request->book_id);
+        if ($book) {
+            $book->decrement('AvailableAmount');
+        }
+
+        return redirect()->back()->with('success', 'Reservation request submitted successfully.');
     }
     /**
      * Display the specified book.
@@ -61,7 +75,10 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::with('author')->findOrFail($id);
-        return view('books.show', compact('book'));
+        $categoryId = $book->pluck('category_id')->toArray();
+        $category = Book::where('category_id', $categoryId)->get();
+
+        return view('books.show', compact('book', 'category'));
     }
 
     /**

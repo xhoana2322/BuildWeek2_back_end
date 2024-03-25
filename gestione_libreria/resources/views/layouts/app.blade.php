@@ -15,6 +15,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
         <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
