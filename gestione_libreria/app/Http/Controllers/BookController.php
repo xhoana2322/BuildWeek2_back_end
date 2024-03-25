@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\User;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Models\Category;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
@@ -62,6 +63,11 @@ class BookController extends Controller
         //
     }
 
+
+    /**
+     * Store a newly created resource in storage.
+     */
+
     public function store(Request $request)
     {
         $user_id = Auth::id();
@@ -87,7 +93,10 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::with('author')->findOrFail($id);
-        return view('books.show', compact('book'));
+        $categoryId = $book->pluck('category_id')->toArray();
+        $category = Book::where('category_id', $categoryId)->get();
+
+        return view('books.show', compact('book', 'category'));
     }
 
     /**
