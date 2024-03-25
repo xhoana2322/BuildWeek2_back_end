@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -32,7 +32,32 @@
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
+                </tr>
+            @endforeach
 
+        </table>
+    <table class="table table-hover">
+            <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Book</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($reservations as $reservation)
+                <tr>
+                    <td>{{ $reservation->user->name }}</td>
+                    <td>{{ $reservation->user->email }}</td>
+                    <td>{{ $reservation->book->title }}</td>
+                    <td>{{ $reservation->status }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/admin/{{ $reservation->id }}/confirm">Confirm</a>
+                        <form action="/admin/{{ $reservation->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
 
