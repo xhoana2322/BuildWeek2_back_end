@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\User;
 use App\Models\Book;
 use App\Models\Reservation;
@@ -48,13 +49,14 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('homepage.index');
     }
 
     // Funzione che restituisce la lista degli utenti
     public function index(Request $request)
     {
         $users = User::all();
+        $categories = Category::all();
         $reservations = Reservation::where('status', ['pending'])
             ->get();
         $book_ids = $reservations->pluck('book_id')->toArray();
@@ -63,11 +65,13 @@ class RegisteredUserController extends Controller
         /* $users = User::whereIn('id', $user_ids)->get(); */
 
         // Controllo se l'utente è un admin
+       if (Auth::check()) {
         if (Auth::user()->is_admin == '1') {
             return view('admin', ['books' => $books, 'reservations' => $reservations, 'users' => $users]);
         } else {
-            return view('dashboard', ['users' => $users]);
+            return view('auth.login', ['users' => $users], ['categories' => $categories]);
         }
+          }
 
     }
 
