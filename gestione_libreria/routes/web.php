@@ -37,12 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
     Route::post('/books/reserve/{bookId}', [ReservationController::class, 'reserve'])->name('book.reserve');
     Route::get('/mybooks', [BookController::class, 'mybooks'])->name('mybooks.index');
+    Route::delete('/reservation/{id}/return', [BookController::class, 'return'])->name('reservation.return');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
-
+    Route::post('/reservation/store', [BookController::class, 'store'])->name('reservation.store');
+    Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
 });
-
-Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
 Route::resource('homepage', CategoryController::class);
 
 Route::resource('admin', RegisteredUserController::class);

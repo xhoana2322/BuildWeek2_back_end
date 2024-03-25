@@ -39,13 +39,28 @@
                     <span class="text-secondary">Not available</span>
                 </div>
                 @endif
-                @endif
+
                 @if ($reservation->status === "Available")
                 <div class="mt-5">
-                    <button class="btn btn-outline-danger btn-sm">
-                        Return book
-                    </button>
+                    <form action="{{ route('reservation.return', $reservation->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            Return book
+                        </button>
+                    </form>
                 </div>
+                @elseif ($reservation->status === "Pending")
+                <div class="mt-5">
+                    <form action="{{ route('reservation.return', $reservation->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            Cancel request
+                        </button>
+                    </form>
+                </div>
+                @endif
                 @endif
                 @endforeach
             </div>
