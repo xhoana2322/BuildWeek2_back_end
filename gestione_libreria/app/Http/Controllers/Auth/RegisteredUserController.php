@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Book;
+use App\Models\Reservation;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -53,13 +55,20 @@ class RegisteredUserController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
+        $reservations = Reservation::where('status', ['pending'])
+            ->get();
+        $book_ids = $reservations->pluck('book_id')->toArray();
+        $books = Book::whereIn('id', $book_ids)->get();
+        $user_ids = $reservations->pluck('user_id')->toArray();
+        /* $users = User::whereIn('id', $user_ids)->get(); */
 
         // Controllo se l'utente è un admin
         if (Auth::user()->is_admin == '1') {
-            return view('admin', ['users' => $users]);
+            return view('admin', ['books' => $books, 'reservations' => $reservations, 'users' => $users]);
         } else {
             return view('dashboard', ['users' => $users]);
         }
+
     }
 
     // Funzione che elimina un utente
@@ -74,23 +83,50 @@ class RegisteredUserController extends Controller
     }
 
     // Funzione che modifica un utente
-    public function edit(Request $request, $id) {
+    public function edit(Request $request, $id)
+    {
 
         // Cerco l'utente da modificare
         $user = User::findOrFail($id);
         return view('users-update', ['user' => $user]);
-        
+
     }
 
     // Funzione che aggiorna un utente
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $data = $request->only('name', 'email', 'password', 'is_admin');
         $user = User::findOrFail($id)->update($data);
 
         return redirect()->route('admin.index', ['user' => $user])->with('success', 'Utente aggiornato con successo!');
+    }
 
-        }
+    public function confirmReservation($id)
+    {
+        $users = User::all();
+        $reservations = Reservation::where('status', ['pending'])
+            ->get();
+        $book_ids = $reservations->pluck('book_id')->toArray();
+        $books = Book::whereIn('id', $book_ids)->get();
+        $reservation = Reservation::findOrFail($id);
+        $reservation->status = 'Available';
+        $reservation->save();
+        return redirect()->route('admin.index', ['books' => $books, 'reservations' => $reservations, 'users' => $users]);
+    }
 
+    public function rejectReservation($id)
+    {
+        $users = User::all();
+        $reservations = Reservation::where('status', ['pending'])
+            ->get();
+        $book_ids = $reservations->pluck('book_id')->toArray();
+        $books = Book::whereIn('id', $book_ids)->get();
+        $reservation = Reservation::findOrFail($id);
+        $reservation->status = 'Not available';
+        $reservation->delete();
+        return redirect()->route('admin.index', ['books' => $books, 'reservations' => $reservations, 'users' => $users]);
+    }
 
 }
+

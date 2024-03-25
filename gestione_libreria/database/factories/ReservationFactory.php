@@ -18,7 +18,7 @@ class ReservationFactory extends Factory
      */
     public function definition(): array
     {
-        $status = ['Available', 'Not available', 'Pending'];
+        $status = ['Available', 'Pending'];
         return [
             'status' => fake()->randomElement($status),
             'user_id' => User::get()->random()->id,
