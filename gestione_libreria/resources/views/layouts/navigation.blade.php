@@ -1,8 +1,8 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="navClass bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+    <div class="navMenuDiv mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between align-items-center h-16">
+            <div class="brandLink flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -12,19 +12,33 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+                        {{ __('BestBooks') }}
                     </x-nav-link>
-               
-                   
+                </div>
+
+                <!-- Search Bar -->
+                <form class="searchForm d-flex py-3 ms-2 me-3" role="search">
+                    <input class="searchText form-control me-0 border-0" type="search" placeholder="Search your books!" aria-label="Search">
+                    <button class="searchBtn btn btn-outline-light rounded-0" type="submit">Search</button>
+                </form>
+
+                <!-- Menu -->
+                <div class="menuNav d-flex align-items-center">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+                        {{ __('Bookshelf') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+                        {{ __('Reservations') }}
+                    </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="dropdownGroupNav hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="navDropdown inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -69,8 +83,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link:href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link:href=>
+            
+            <!-- Move the nav link here -->
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Bookshelf') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Reservations') }}
             </x-responsive-nav-link>
         </div>
 
