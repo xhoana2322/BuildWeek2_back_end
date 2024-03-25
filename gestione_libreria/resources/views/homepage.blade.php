@@ -76,7 +76,7 @@
                                                     <p class="card-subtitle mb-2 text-muted h6">{{ $book->author->name }}</p>
                                                 </div>
                                                 <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
-                                                <a href="books/{{ $book->id }}" class="btn btn-primary">Scopri di più</a>
+                                                <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
 
                                                 <div class="mt-2 d-flex justify-content-between align-items-center">
                                                     <a href="#" class="btn btn-primary tasto_prenota">Prenota</a>
