@@ -13,7 +13,7 @@ Palette e utilizzo dei colori:
 
 body {
     background-color: #468189 !important;
-    background-attachment: fixed;
+    min-height: 100vh !important;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -148,6 +148,7 @@ body {
     margin-top: 0 !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
+    overflow: hidden !important;
 }
 
 .headerClass div {
@@ -248,6 +249,22 @@ Palette e utilizzo dei colori:
 .menu_fine > nav > div:nth-child(2) {
     display: flex !important;
     flex-direction: column-reverse !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a {
+    background-color: transparent !important;
+    color: #ECFAFF !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:first-child span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span a:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a:hover {
+    color: #F87060 !important;
+    border: #F87060 solid 1px !important;
+}
+
+.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child {
+    border: #F87060 solid 1px !important;
 }
 
 
@@ -314,7 +331,7 @@ Palette e utilizzo dei colori:
 
 /*Visibile in small devices*/
 @media (max-width: 768px) {
-    .menuNav {
+    .menuNav, .menu_fine > nav > div:nth-child(2) {
         display: none !important;
     }
 }
