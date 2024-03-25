@@ -105,5 +105,21 @@ class RegisteredUserController extends Controller
 
     }
 
+    public function confirmReservation($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->status = 'Available';
+        $reservation->save();
+        return redirect()->back()->with('success', 'Reservation confirmed successfully.');
+    }
+
+    public function rejectReservation($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->status = 'Not available';
+        $reservation->save();
+        return redirect()->back()->with('success', 'Reservation rejected successfully.');
+    }
+
 }
 
