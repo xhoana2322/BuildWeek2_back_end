@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage.index')" class="linkNav">
                         {{ __('BestBooks') }}
                     </x-nav-link>
                 </div>
@@ -22,12 +22,15 @@
 
                 <!-- Menu -->
                 <div class="menuNav d-flex align-items-center">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+                    <x-nav-link :href="route('listalibri.index')" :active="request()->routeIs('listalibri.index')" class="linkNav">
                         {{ __('Bookshelf') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="linkNav">
+
+                    @if (Auth::user()->is_admin == 1)
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" class="linkNav">
                         {{ __('Reservations') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -80,16 +83,16 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link:href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link:href="route('homepage.index')" :active="request()->routeIs('homepage.index')">
+                {{ __('Homepage') }}
             </x-responsive-nav-link:href=>
             
             <!-- Move the nav link here -->
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('listalibri.index')" :active="request()->routeIs('listalibri.index')">
                 {{ __('Bookshelf') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                 {{ __('Reservations') }}
             </x-responsive-nav-link>
         </div>

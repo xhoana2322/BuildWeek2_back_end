@@ -69,6 +69,7 @@
                                         @if ($image_info !== false)
                                             <img src="{{ $image_url }}"  class="card-img-top border" alt="{{ $book->title }}">
                                         @endif
+
                                             <div class="card-body">
                                                 <div class="mb-1 border-bottom">
                                                     <p class="card-title fw-bold h5">{{ $book->title }}</p>
