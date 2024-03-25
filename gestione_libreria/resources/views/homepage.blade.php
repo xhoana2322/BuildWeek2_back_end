@@ -10,9 +10,6 @@
 <body>
 
     <x-app-layout>
-
-@include('components.search-bar')
-
         <div class="bg-dark">
             <div class="hero bg-primary" style="margin-top: 3rem; height: 30rem;">
                 <!-- <div>
@@ -63,15 +60,24 @@
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                 <div class="d-flex">
                                     @foreach ($chunk as $book)
-                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 mx-3 libroCard">
-                                            <img src="{{ $book->image }}" class="card-img-top rounded-2 immagine_card" alt="...">
+                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
+                                        @php
+                                            $image_url = $book->image;
+                                            $image_info = @getimagesize($image_url);
+                                        @endphp
+
+                                        @if ($image_info !== false)
+                                            <img src="{{ $image_url }}"  class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
+                                        @endif
+
                                             <div class="card-body">
                                                 <div class="mb-1 border-bottom">
                                                     <p class="card-title fw-bold h5">{{ $book->title }}</p>
                                                     <p class="card-subtitle mb-2 text-muted h6">{{ $book->author->name }}</p>
                                                 </div>
                                                 <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
-                                                <a href="#" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
+                                                <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
+
                                                 <div class="mt-2 d-flex justify-content-between align-items-center">
                                                     <a href="#" class="btn btn-primary tasto_prenota">Prenota</a>
                                                     <p class="text-success fw-bold">Disponibile</p>

@@ -11,8 +11,8 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    public function book(): HasMany {
-        return $this->hasMany(Book::class);
+    public function book(): BelongsTo {
+        return $this->BelongsTo(Book::class);
     }
 
     public function user(): BelongsTo {

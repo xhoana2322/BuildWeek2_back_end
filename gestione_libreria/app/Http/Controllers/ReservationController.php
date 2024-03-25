@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Book;
+use App\Models\User;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
-use App\Models\Book;
 use Illuminate\Http\Client\Request;
+
 
 class ReservationController extends Controller
 {
@@ -77,9 +79,10 @@ class ReservationController extends Controller
     {
         $book = Book::findOrFail($bookId);
         if ($book->AvailableAmount > 0) {
-            $book->AvailableAmount --;
+            $book->AvailableAmount--;
             $book->save();
 
-        return back()->with('success', 'Your request for"'. $book->title . '"is pending until approved!');
-        }}
+            return back()->with('success', 'Your request for"' . $book->title . '"is pending until approved!');
+        }
+    }
 }
