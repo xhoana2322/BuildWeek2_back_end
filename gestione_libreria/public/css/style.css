@@ -91,20 +91,23 @@ body {
     background-color: transparent !important;
     border-radius: 0rem 1rem 0rem 1rem !important;
     border: solid 2px #ECFAFF !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
 }
 
 .navDropdown:hover {
     color: #ECFAFF !important;
     border: solid 2px #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #ECFAFF !important;
 }
 
 .navDropdown:focus {
     color: #F87060 !important;
     border: solid 2px #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #F87060 !important;
 }
 
 .dropdownGroupNav div > div:nth-child(2) {
-    margin-top: 0.9rem !important;
+    margin-top: 1rem !important;
     border: none !important;
     border-radius: 0rem 0rem 1rem 1rem !important;
     box-shadow: none !important;
@@ -119,6 +122,7 @@ body {
     padding-top: 0.7rem !important;
     box-sizing: border-box;
     padding-left: 1rem !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
 .dropdownGroupNav div > div:nth-child(2) div a {
@@ -183,8 +187,10 @@ body {
 
 .cardBook img {
     border-radius: 0rem 2rem 0rem 2rem !important;
-    border: solid 0.7rem #468189 !important;
+    border: solid 0.5rem #468189 !important;
     padding: 0 !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
+    box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
 .cardBook .card-title {
@@ -200,7 +206,7 @@ body {
 }
 
 .detailButton {
-    background-color: #F87060 !important;
+    background-color: #468189 !important;
     color: #ECFAFF !important;
     border: none !important;
     padding: 0.6rem 1rem 0.6rem 1rem !important;
@@ -208,7 +214,7 @@ body {
 }
 
 .detailButton:hover {
-    background-color: #468189 !important;
+    background-color: #F87060 !important;
 }
 
 .reserveButton {
