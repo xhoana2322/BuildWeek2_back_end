@@ -18,10 +18,7 @@
                 </div>
 
                 <!-- Search Bar -->
-                <form class="searchForm d-flex py-3 ms-2 me-3" role="search">
-                    <input class="searchText form-control me-0 border-0" type="search" placeholder="Search your books!" aria-label="Search">
-                    <button class="searchBtn btn btn-outline-light rounded-0" type="submit">Search</button>
-                </form>
+                @include('components.search-bar')
 
                 <!-- Menu -->
                 <div class="menuNav d-flex align-items-center">
