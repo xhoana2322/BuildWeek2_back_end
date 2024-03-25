@@ -22,14 +22,12 @@ body {
 /*Navbar*/
 
 .navClass {
-    background-color: #468189 !important;
+    background-color: #46818970 !important;
     position: sticky !important;
     top: 0 !important;
     border: none !important;
     backdrop-filter: blur(5px) !important;
     z-index: 1000 !important;
-    
-    border-radius: 0 0 0 2rem !important;
     border-bottom: #F87060 solid 2px !important;
 }
 
@@ -76,7 +74,7 @@ body {
 }
 
 .searchBtn {
-    background-color: #468189 !important;
+    background-color: transparent !important;
     color: #ECFAFF !important;
     border-radius: 0rem 2rem 2rem 0rem !important;
     border: 1px solid #ECFAFF !important;
@@ -85,7 +83,7 @@ body {
 
 .searchBtn:hover {
     background-color: #ECFAFF !important;
-    color: #468189 !important;
+    color: #102542 !important;
 }
 
 .menuNav {
@@ -199,6 +197,58 @@ body {
     margin-top: 0 !important;
     margin-left: 0rem !important;
 
+}
+
+/*Hero Section*/
+
+.hero {
+    box-shadow: 0 1rem 2rem 1rem #10254270 !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1; /* Rendi il livello sempre visibile */
+}
+
+.overlay h2 {
+    color: #ECFAFF !important;
+    font-size: 5rem !important;
+    padding: 1.5rem !important;
+    border-radius: 0 0 0 2rem !important;
+    margin-top: 0 !important;
+    margin-left: 0rem !important;
+    position: absolute !important;
+    top: 0 !important;
+    text-transform: uppercase !important; 
+    font-weight: 900 !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.divDescriptionHero {
+    position: absolute !important;
+    top: 20% !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.descriptionHero {
+    color: #ECFAFF !important;
+    font-size: 3rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    text-transform: uppercase !important;
 }
 
 /*Listalibri*/
