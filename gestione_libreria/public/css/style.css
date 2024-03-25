@@ -80,10 +80,19 @@ body {
     color: #ECFAFF !important;
     font-size: 0.9rem !important;
     margin-right: 1.5rem !important;
+    border-radius: 0 1rem 0 1rem !important;
+    box-shadow: -0.3rem 0 0 0 #ECFAFF !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
 }
 
 .menuNav a:hover {
     color: #F87060 !important;
+    border: none !important;
+    box-shadow: 0.3rem 0 0 0 #F87060 !important;
+    text-decoration: none !important;
 }
 
 .navDropdown {
