@@ -17,7 +17,6 @@ class BookController extends Controller
      */
     public function index()
     {
-
         $books = Book::with('author')->paginate(5);
         if (Auth::check()) {
         return view('listalibri', ['books' => $books]);
