@@ -11,6 +11,8 @@
 
     <x-app-layout>
 
+@include('components.search-bar')
+
         <div class="bg-dark">
             <div class="hero bg-primary" style="margin-top: 3rem; height: 30rem;">
                 <!-- <div>

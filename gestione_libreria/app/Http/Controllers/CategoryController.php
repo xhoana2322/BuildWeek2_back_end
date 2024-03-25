@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
@@ -14,11 +15,24 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $books=Book::all();
-        $categories=Category::all();
+        $books = Book::query();
+        $categories = Category::all();
+
+        if (request()->has('search')) {
+            $books->where(function ($query) {
+                $query->whereHas('author', function ($query) {
+                    $query->where('name', 'like', '%' . request()->get('search', '') . '%');
+                })
+                    ->orWhere('title', 'like', '%' . request()->get('search', '') . '%')
+                    ->orWhere('plot', 'like', '%' . request()->get('search', '') . '%');
+            });
+        }
+
+        $books = $books->get();
 
         return view('homepage', ['books' => $books, 'categories' => $categories]);
     }
+
 
     /**
      * Show the form for creating a new resource.
