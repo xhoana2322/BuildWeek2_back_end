@@ -33,6 +33,23 @@ body {
     border-bottom: #F87060 solid 2px !important;
 }
 
+.navBrand a {
+    color: #ECFAFF !important;
+    font-size: 2rem;
+    border: none !important;
+    outline: none !important;
+    border-radius: 0 2rem 0 2rem !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
+    padding: 0rem 0.5rem 0rem 1rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.navBrand a:hover {
+    color: #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #ECFAFF !important;
+}
+
 .navMenuDiv {
     margin-right: 0 !important;
     margin-left: 0 !important;
@@ -86,6 +103,8 @@ body {
     padding-right: 1rem !important;
     padding-top: 0.3rem !important;
     padding-bottom: 0.3rem !important;
+    text-decoration: none !important;
+    border: none !important;
 }
 
 .menuNav a:hover {
