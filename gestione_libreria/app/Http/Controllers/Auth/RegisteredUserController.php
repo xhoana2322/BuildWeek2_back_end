@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -53,13 +54,19 @@ class RegisteredUserController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
+        $categories = Category::all();
 
         // Controllo se l'utente è un admin
-        if (Auth::user()->is_admin == '1') {
-            return view('admin', ['users' => $users]);
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == '1') {
+                return view('admin', ['users' => $users]);
+            } else {
+                return view('homepage', ['users' => $users], ['categories' => $categories]);
+            }
         } else {
-            return view('dashboard', ['users' => $users]);
+            return view('auth.login', ['users' => $users], ['categories' => $categories]);
         }
+
     }
 
     // Funzione che elimina un utente
@@ -74,23 +81,25 @@ class RegisteredUserController extends Controller
     }
 
     // Funzione che modifica un utente
-    public function edit(Request $request, $id) {
+    public function edit(Request $request, $id)
+    {
 
         // Cerco l'utente da modificare
         $user = User::findOrFail($id);
         return view('users-update', ['user' => $user]);
-        
+
     }
 
     // Funzione che aggiorna un utente
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $data = $request->only('name', 'email', 'password', 'is_admin');
         $user = User::findOrFail($id)->update($data);
 
         return redirect()->route('admin.index', ['user' => $user])->with('success', 'Utente aggiornato con successo!');
 
-        }
+    }
 
 
 }

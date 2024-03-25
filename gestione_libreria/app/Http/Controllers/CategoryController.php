@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -30,7 +31,11 @@ class CategoryController extends Controller
 
         $books = $books->get();
 
-        return view('homepage', ['books' => $books, 'categories' => $categories]);
+        if (Auth::check()) {
+            return view('homepage', ['books' => $books, 'categories' => $categories]);
+        } else {
+            return view('auth.register', ['books' => $books, 'categories' => $categories]);
+        }
     }
 
 
