@@ -1,0 +1,247 @@
+/*
+Palette e utilizzo dei colori:
+
+- sfondo: #CDD7D6
+- testi scuri: #102542
+- testi chiari: #ECFAFF
+- decorazioni e link: #F87060
+- Background Navbar, titoli: #468189
+
+*/
+
+/*Generale*/
+
+body {
+    background-color: #468189 !important;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*Navbar*/
+
+.navClass {
+    background-color: #468189 !important;
+    position: sticky !important;
+    top: 0 !important;
+    border: none !important;
+    backdrop-filter: blur(5px) !important;
+    z-index: 1000 !important;
+    
+    border-radius: 0 0 0 2rem !important;
+    border-bottom: #F87060 solid 2px !important;
+}
+
+.navMenuDiv {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin: auto !important;
+}
+
+.brandLink div a {
+    color: #ECFAFF !important;
+    font-size: 2rem;
+}
+
+.searchText {
+    background-color: #ECFAFF !important;
+    color: #468189 !important;
+    border-radius: 2rem 0rem 0rem 2rem !important;
+    margin-left: 2rem !important;
+    padding-left: 1.3rem !important;
+    outline: 0 !important;
+}
+
+.searchText:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.searchBtn {
+    background-color: #468189 !important;
+    color: #ECFAFF !important;
+    border-radius: 0rem 2rem 2rem 0rem !important;
+    border: 1px solid #ECFAFF !important;
+    padding-right: 1.3rem !important;
+}
+
+.searchBtn:hover {
+    background-color: #ECFAFF !important;
+    color: #468189 !important;
+}
+
+.menuNav {
+    margin-right: 0 !important;
+    margin-left: 1.5rem !important;
+}
+
+.menuNav a {
+    color: #ECFAFF !important;
+    font-size: 0.9rem !important;
+    margin-right: 1.5rem !important;
+}
+
+.menuNav a:hover {
+    color: #F87060 !important;
+}
+
+.navDropdown {
+    color: #ECFAFF !important;
+    background-color: transparent !important;
+    border-radius: 0rem 1rem 0rem 1rem !important;
+    border: solid 2px #ECFAFF !important;
+}
+
+.navDropdown:hover {
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+}
+
+.navDropdown:focus {
+    color: #F87060 !important;
+    border: solid 2px #F87060 !important;
+}
+
+.dropdownGroupNav div > div:nth-child(2) {
+    margin-top: 0.9rem !important;
+    border: none !important;
+    border-radius: 0rem 0rem 1rem 1rem !important;
+    box-shadow: none !important;
+}
+
+.dropdownGroupNav div > div:nth-child(2) div {
+    background-color: #ECFAFF !important;
+    backdrop-filter: blur(5px) !important;
+    border: none !important;
+    border-radius: 0rem 0rem 1rem 1rem !important;
+    padding-bottom: 1rem !important;
+    padding-top: 0.7rem !important;
+    box-sizing: border-box;
+    padding-left: 1rem !important;
+}
+
+.dropdownGroupNav div > div:nth-child(2) div a {
+    color: #468189 !important;
+    font-size: 1rem !important;
+    backdrop-filter: blur(5px) !important;
+    border-left: solid 2px #468189 !important;
+}
+
+
+.dropdownGroupNav div > div:nth-child(2) div a:hover {
+    color: #F87060 !important;
+    border-left: solid 2px #F87060 !important;
+}
+
+/*Header*/
+
+.headerClass {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.headerClass div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 3rem !important;
+    min-width: 100% !important;
+}
+
+.headerClass h2 {
+    color: #ECFAFF !important;
+    font-size: 3rem !important;
+    border-left: #F87060 solid 2px !important;
+    border-bottom: #F87060 solid 2px !important;
+    padding: 1.5rem !important;
+    border-radius: 0 0 0 2rem !important;
+    margin-top: 0 !important;
+    margin-left: 0rem !important;
+
+}
+
+/*Listalibri*/
+
+.cardBook {
+    background: rgb(236,250,255);
+    background: linear-gradient(270deg, rgba(236,250,255,1) 90%, rgba(70,129,137,1) 96%);
+    border: solid 2px #468189 !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(5px) !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 0rem 2rem 0rem 2.5rem !important;
+}
+
+.cardBook img {
+    border-radius: 0rem 2rem 0rem 2rem !important;
+    border: solid 0.7rem #468189 !important;
+    padding: 0 !important;
+}
+
+.cardBook .card-title {
+    color: #468189 !important;
+}
+
+.cardBook .card-subtitle {
+    color: #46818970 !important;
+}
+
+.plotText {
+    color: #102542 !important;
+}
+
+.detailButton {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: none !important;
+    padding: 0.6rem 1rem 0.6rem 1rem !important;
+    border-radius: 0rem 1rem 0rem 1rem !important;
+}
+
+.detailButton:hover {
+    background-color: #468189 !important;
+}
+
+.reserveButton {
+    background-color: transparent !important;
+    color: #F87060 !important;
+    border: solid 2px #F87060 !important;
+    padding: 0.6rem 1rem 0.6rem 1rem !important;
+    border-radius: 0rem 1rem 0rem 1rem !important;
+}
+
+.reserveButton:hover {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*@media*/
+
+/*Visibile in small devices*/
+@media (max-width: 768px) {
+    .menuNav {
+        display: none !important;
+    }
+}
+
+/*Visibile in medium devices*/
+@media (min-width: 1000px) {
+    .searchForm {
+        width: 25rem !important;
+    }
+}
+
+/*Visibile in large devices*/
