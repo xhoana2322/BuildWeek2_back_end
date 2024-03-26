@@ -55,7 +55,7 @@
                     <form action="{{ route('reservation.return', $reservation->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                        <button type="submit" class="reserveButton btn btn-outline-danger btn-sm">
                             Cancel request
                         </button>
                     </form>

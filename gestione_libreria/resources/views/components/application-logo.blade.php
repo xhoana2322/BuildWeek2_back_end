@@ -1,1 +1,1 @@
-<img src="{{ asset('logo/Papera.png') }}" width="60px" alt="logo">
+<img src="{{ asset('logo/PoperaPlus.png') }}" width="60px" alt="logo">
