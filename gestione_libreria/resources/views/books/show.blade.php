@@ -83,6 +83,8 @@
 <x-app-layout>
     <div class="d-flex h-55vh w-100 items-center justify-content-between px-10 my-4">
         <div class="max-w-4xl mx-auto px-6 px-lg-8">
+
+        <!-- TODO:allarm mesage -->
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div class="row d-flex justify-content-evenly p-8">
                     <!-- Book Image -->
@@ -133,6 +135,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
+
                         @if ($book->AvailableAmount > 0 && !in_array($book->id, $userPendingReservations))
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
@@ -155,6 +158,8 @@
                                 </span>
                             </button>
                             </form>
+
+                            
                             @endif
                         </div>
                     </div>
@@ -192,13 +197,12 @@
                                                 <div class="card-text">
                                                     <p class="card-title fw-bold h5">{{ $relatedBook->title }}</p>
                                                     <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
-                                                </div>
-                                                <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
-                                                <!-- Add more actions or details if needed -->
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
+                                                 </div>
+                                             <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
+                                          </div>
+                                       </div>
+                                     @endforeach
+                                   </div>
                             @else
                                 <p>No similar books found.</p>
                             @endif

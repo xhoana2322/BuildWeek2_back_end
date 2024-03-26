@@ -92,6 +92,12 @@ class BookController extends Controller
      */
     public function show($id)
     {
+        $userId = auth()->id();
+        $userPendingReservations = Reservation::where('user_id', $userId)
+            ->whereIn('status', ['pending', 'available'])
+            ->pluck('book_id') // Pluck only book IDs
+            ->toArray(); // Convert the collection to an array
+
         $book = Book::with('author')->findOrFail($id);
         $categoryId = $book->pluck('category_id')->toArray();
         $category = Book::where('category_id', $categoryId)->get();
