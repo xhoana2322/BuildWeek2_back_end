@@ -15,7 +15,7 @@
     <div class="adminPage container">
         <div class="d-flex align-items-center justify-content-between mt-5">
             <h2 class="pt-2 pb-4 ps-3 fw-bold">Users</h2>
-            <a class="addButton btn btn-primary btn-sm" href="/admin/create">
+            <a class="addButton btn btn-primary btn-sm" style="text-decoration: none;" href="/admin/create">
                 <i class="fas fa-user-plus"></i> Add new user
             </a>
         </div>

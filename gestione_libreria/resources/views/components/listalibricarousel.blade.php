@@ -30,10 +30,10 @@
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                <button type="submit" class="btn btn-outline-success tasto_prenota">Reserve</button>
+                                <button type="submit" class="btn btn-outline-success tasto_prenota" style="text-decoration: none;">Reserve</button>
                             </form>
                         @endif
-                                <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">View Details</a>
+                                <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio" style="text-decoration: none;">View Details</a>
                             </div>
                         </div>
                     </div>
