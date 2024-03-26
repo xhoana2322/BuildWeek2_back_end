@@ -40,7 +40,7 @@
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                <button type="submit" class="btn btn-outline-success">Reserve</button>
+                                <button type="submit" class="reserveButton btn btn-outline-success">Reserve</button>
                             </form>
                         @endif
                     </div>
