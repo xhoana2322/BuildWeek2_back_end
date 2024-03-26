@@ -118,6 +118,7 @@
         <!-- Carousel -->
         @if ($categories->count() > 0)
             @foreach ($categories as $category)
+            @if ($books->where('category_id', $category->id)->count() > 0)
             <p class="h1 mt-3 text-center text-sm-start nome_carosello">{{ $category->CategoryName }}</p>
                 <div id="carouselCategory{{ $category->id }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -137,7 +138,6 @@
                                         @if ($image_info !== false)
                                             <img src="{{ $image_url }}"  class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
                                         @endif
-
                                             <div class="card-body">
                                                 <div class="mb-1 border-bottom">
                                                     <p class="card-title fw-bold h5">{{ $book->title }}</p>
@@ -158,6 +158,7 @@
                         @endforeach
                     </div>
                 </div>
+            @endif
             @endforeach
         @endif
     </div>
