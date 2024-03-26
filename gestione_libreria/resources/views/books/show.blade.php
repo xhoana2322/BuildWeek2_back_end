@@ -54,6 +54,7 @@
         grid-area: 1/ 1;
         width: .75em;
         aspect-ratio: 1;
+        
     }
 
     &::before {
@@ -77,6 +78,12 @@
         filter: blur(.5px);
         content: '✦';
     }
+    &:hover::before {
+        background: radial-gradient(at 85% 85%, #92372d, #F87060 75%); 
+    }
+    .particle:hover::before {
+    background: radial-gradient(at 85% 85%, var(--hover-color, #92372d), var(--hover-color, #F87060) 75%);
+}
 }
 </style>
 
@@ -241,5 +248,6 @@ $relatedBooks = App\Models\Book::where('category_id', $book->category_id)
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+
 </x-app-layout>
