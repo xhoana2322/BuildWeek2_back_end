@@ -123,7 +123,7 @@
 
                                                 <ul class='page'>
                                                     <li></li>
-                                                    <li>
+                                                    <li class="text-center">
                                                         <p class="mt-5">Accat't o' libr</p>
                                                         <p>🤡</p>
                                                     </li>

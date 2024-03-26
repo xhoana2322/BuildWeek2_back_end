@@ -496,10 +496,6 @@ Palette e utilizzo dei colori:
 }
 
 /* CSS Pagina dettaglio libro */
-::before,
-::after {
-	content: "";
-}
 
 #book-id body {
 	background: #deebef;
