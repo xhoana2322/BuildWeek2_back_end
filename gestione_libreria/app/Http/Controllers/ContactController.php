@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 use App\Mail\ContactMessage;
@@ -28,7 +28,7 @@ class ContactController extends Controller
         ];
 
         
-        Mail::to('fenixinsky@gmail.com')->send(new ContactMessage($data));
+        Mail::to('example@mail.com')->send(new ContactMessage($data));
 
         return redirect()->back()->with('success', 'Message sent successfully!');
     }
