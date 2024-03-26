@@ -41,17 +41,18 @@
             Contact Us
         </h2>
     </x-slot>
-
+    
     <div class="py-4">
+    
         <div class="max-w-md mx-auto sm:px-6 lg:px-8 w-50">
         @if(session('success'))
-            <div class="bg-opacity-50 backdrop-blur-lg bg-neutral-300 border-l-4 border-green-500 text-green-700 p-4 rounded-md shadow-md flex items-center animate__animated animate__fadeInDown">
-                <svg class="h-6 w-6 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <p class="text-sm">{{ session('success') }}</p>
-            </div>
-        @endif
+                <div class="bg-opacity-50 backdrop-blur-lg bg-neutral-300 border-l-4 border-green-500 text-green-700 p-4 rounded-md shadow-md flex items-center animate__animated animate__fadeInDown">
+                    <svg class="h-6 w-6 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p class="text-sm">{{ session('success') }}</p>
+                </div>
+            @endif
 
             <form action="{{ route('contact.send') }}" method="POST">
                 @csrf
@@ -65,7 +66,10 @@
                 </div>
                 <div class="mb-4">
                     <label for="message" class="block text-sm font-medium text-white">Message</label>
-                    <textarea name="message" id="message" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required></textarea>
+                    <textarea name="message" id="message" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                  
+                    </textarea>
+                     
                 </div>
                 <div class="text-end">
                     <!-- <button type="submit" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-900 focus:ring focus:ring-blue-200 disabled:opacity-25 transition detailButton border-1">Send Message</button> -->
@@ -76,4 +80,5 @@
             </form>
         </div>
     </div>
+   
 </x-app-layout>
