@@ -34,7 +34,7 @@
                         {{ __('My Books') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="linkNav">
+                    <x-nav-link :href="route('contact.show')" :active="request()->routeIs('contact.show')" class="linkNav">
                         {{ __('Contact Us') }}
                     </x-nav-link>
 
