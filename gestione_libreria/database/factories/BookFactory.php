@@ -20,7 +20,7 @@ class BookFactory extends Factory
     {
         return [
             'title' => fake()->unique()->text(20),
-            'image' =>'https://picsum.photos/id/'.fake()->randomNumber(2).'/200/300',
+            'image' =>'https://picsum.photos/id/'.fake()->numberBetween(1, 60).'/200/300',
             'pages' => fake()->numberBetween(100, 680),
             'AvailableAmount' => fake()->numberBetween(0, 60),
             'plot' => fake()->unique()->text(100),
