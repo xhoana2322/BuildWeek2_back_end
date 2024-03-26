@@ -58,7 +58,7 @@
             </div>
         @endif
 
-            <form action="{{ route('contact.send') }}" method="POST">
+            <form action="{{ route('contact.send') }}" method="POST" id="myForm">
                 @csrf
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-white">Your Name</label>
