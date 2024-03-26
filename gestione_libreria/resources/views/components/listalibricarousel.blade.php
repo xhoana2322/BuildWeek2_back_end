@@ -4,9 +4,9 @@
     <p class="h1 mt-3 text-center text-sm-start nome_carosello">{{ $category->CategoryName }}</p>
     <div id="carouselCategory{{ $category->id }}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            @foreach ($books->where('category_id', $category->id)->chunk(5) as $index => $chunk)
+            @foreach ($books->where('category_id', $category->id)->chunk(4) as $index => $chunk)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <div class="d-flex">
+                <div class="d-flex align-items-center justify-content-center">
                     @foreach ($chunk as $book)
                     <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
                         <img src="{{ $book->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
@@ -16,10 +16,16 @@
                                 <p class="card-subtitle mb-2 text-muted h6">{{ $book->author->name }}</p>
                             </div>
                             <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
-                            <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
+                            <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio mt-2">Read more</a>
                             <div class="mt-2 d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-primary tasto_prenota">Prenota</a>
-                                <p class="text-success fw-bold">Disponibile</p>
+                                <form action="{{ route('reservation.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                    @if ($book->AvailableAmount > 0 && !collect($userPendingReservations)->contains($book->id))
+                                        <button type="submit" class="reserveButton btn btn-outline-success">Reserve</button>
+                                    @endif
+                                </form>
+                                <p class="text-success fw-bold">{{ $book->AvailableAmount > 0 ? 'Available' : 'Not Available' }}</p>
                             </div>
                         </div>
                     </div>

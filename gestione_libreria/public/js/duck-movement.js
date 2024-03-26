@@ -12,10 +12,9 @@ const data = {
         x: 0,
         y: 0,
         angle: 0,
-        direction: '',
+        direction: 'down',
         offset: { x: 20, y: 14 },
         el: document.querySelector('.duck'),
-        direction: 'down',
     },
     ducklingTargets: [],
     ducklings: []
@@ -134,11 +133,18 @@ const getDirection = ({ pos, facing, target }) => {
 }
 
 const updateCursorPos = e => {
-    data.cursor.x = e.pageX
-    data.cursor.y = e.pageY
+    // Assuming your form has an ID of "myForm"
+    const form = document.getElementById('myForm');
+    const formRect = form.getBoundingClientRect();
 
-    positionMarker(0, data.cursor)
-}
+    // Check if cursor is outside the form
+    if (e.pageX < formRect.left || e.pageX > formRect.right || e.pageY < formRect.top || e.pageY > formRect.bottom) {
+        data.cursor.x = e.pageX;
+        data.cursor.y = e.pageY;
+
+        positionMarker(0, data.cursor);
+    }
+};
 
 const returnAngleDiff = ({ angleA, angleB }) => {
     const diff1 = Math.abs(angleA - angleB)

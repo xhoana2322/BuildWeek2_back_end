@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Reservation;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -28,11 +29,16 @@ class CategoryController extends Controller
                     ->orWhere('plot', 'like', '%' . request()->get('search', '') . '%');
             });
         }
+        $userId = auth()->id();
+        $userPendingReservations = Reservation::where('user_id', $userId)
+            ->whereIn('status', ['pending', 'available'])
+            ->pluck('book_id') // Pluck only book IDs
+            ->toArray(); // Convert the collection to an array
 
         $books = $books->get();
 
         if (Auth::check()) {
-            return view('homepage', ['books' => $books, 'categories' => $categories]);
+            return view('homepage', ['books' => $books, 'categories' => $categories, 'userPendingReservations' =>  $userPendingReservations]);
         } else {
             return view('auth.register', ['books' => $books, 'categories' => $categories]);
         }
