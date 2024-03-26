@@ -22,14 +22,12 @@ body {
 /*Navbar*/
 
 .navClass {
-    background-color: #468189 !important;
+    background-color: #46818970 !important;
     position: sticky !important;
     top: 0 !important;
     border: none !important;
     backdrop-filter: blur(5px) !important;
     z-index: 1000 !important;
-    
-    border-radius: 0 0 0 2rem !important;
     border-bottom: #F87060 solid 2px !important;
 }
 
@@ -76,7 +74,7 @@ body {
 }
 
 .searchBtn {
-    background-color: #468189 !important;
+    background-color: transparent !important;
     color: #ECFAFF !important;
     border-radius: 0rem 2rem 2rem 0rem !important;
     border: 1px solid #ECFAFF !important;
@@ -85,7 +83,7 @@ body {
 
 .searchBtn:hover {
     background-color: #ECFAFF !important;
-    color: #468189 !important;
+    color: #102542 !important;
 }
 
 .menuNav {
@@ -134,14 +132,14 @@ body {
     box-shadow: 0.3rem 0 0 0 #F87060 !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) {
+.dropdownGroupNav div>div:nth-child(2) {
     margin-top: 1rem !important;
     border: none !important;
     border-radius: 0rem 0rem 1rem 1rem !important;
     box-shadow: none !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) div {
+.dropdownGroupNav div>div:nth-child(2) div {
     background-color: #ECFAFF !important;
     backdrop-filter: blur(5px) !important;
     border: none !important;
@@ -153,7 +151,7 @@ body {
     box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) div a {
+.dropdownGroupNav div>div:nth-child(2) div a {
     color: #468189 !important;
     font-size: 1rem !important;
     backdrop-filter: blur(5px) !important;
@@ -161,7 +159,7 @@ body {
 }
 
 
-.dropdownGroupNav div > div:nth-child(2) div a:hover {
+.dropdownGroupNav div>div:nth-child(2) div a:hover {
     color: #F87060 !important;
     border-left: solid 2px #F87060 !important;
 }
@@ -201,11 +199,64 @@ body {
 
 }
 
+/*Hero Section*/
+
+.hero {
+    box-shadow: 0 1rem 2rem 1rem #10254270 !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    /* Rendi il livello sempre visibile */
+}
+
+.overlay h2 {
+    color: #ECFAFF !important;
+    font-size: 5rem !important;
+    padding: 1.5rem !important;
+    border-radius: 0 0 0 2rem !important;
+    margin-top: 0 !important;
+    margin-left: 0rem !important;
+    position: absolute !important;
+    top: 0 !important;
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.divDescriptionHero {
+    position: absolute !important;
+    top: 20% !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+.descriptionHero {
+    color: #ECFAFF !important;
+    font-size: 3rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    text-transform: uppercase !important;
+}
+
 /*Listalibri*/
 
 .cardBook {
-    background: rgb(236,250,255);
-    background: linear-gradient(270deg, rgba(236,250,255,1) 90%, rgba(70,129,137,1) 96%);
+    background: rgb(236, 250, 255);
+    background: linear-gradient(270deg, rgba(236, 250, 255, 1) 90%, rgba(70, 129, 137, 1) 96%);
     border: solid 2px #468189 !important;
     box-shadow: none !important;
     backdrop-filter: blur(5px) !important;
@@ -274,24 +325,28 @@ Palette e utilizzo dei colori:
 
 */
 
-.menu_fine > nav > div:nth-child(2) {
+.menu_fine>nav>div:nth-child(2) {
     display: flex !important;
     flex-direction: column-reverse !important;
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) a {
     background-color: transparent !important;
     color: #ECFAFF !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:first-child span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span a:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a:hover {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:first-child span:first-child:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:nth-child(2) span:first-child:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span a:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) a:hover {
     color: #F87060 !important;
     border: #F87060 solid 1px !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:nth-child(2) span:first-child {
     border: #F87060 solid 1px !important;
 }
 
@@ -300,30 +355,31 @@ Palette e utilizzo dei colori:
 
 .libroCard {
     border-radius: 0 2rem 0 2rem !important;
-    background: rgb(236,250,255) !important;
-    background: linear-gradient(0deg, rgba(236,250,255,1) 63%, rgba(70,129,137,1) 64%) !important;
+    background: rgb(236, 250, 255) !important;
+    background: linear-gradient(0deg, rgba(236, 250, 255, 1) 63%, rgba(70, 129, 137, 1) 64%) !important;
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
-    
-    
+
+
 }
 
-.immagine_card{ 
+.immagine_card {
     border: solid 0.5rem #468189 !important;
     border-radius: 0 2rem 0 2rem !important;
     box-shadow: 0 0.3rem 0 0 #F87060 !important;
 }
 
 .nome_carosello {
-  color: #ECFAFF;
-  border-bottom: solid 2px #F87060;
-  border-radius: 0 0 0 2rem !important;
-  padding-left: 2rem;
-  padding-bottom: 0.3rem;
+    color: #ECFAFF;
+    border-bottom: solid 2px #F87060;
+    border-radius: 0 0 0 2rem !important;
+    padding-left: 2rem;
+    padding-bottom: 0.3rem;
 }
 
-.tasto_prenota, .tasto_dettaglio {
+.tasto_prenota,
+.tasto_dettaglio {
     min-width: 8rem !important;
     border-radius: 0 1.5rem 0 1.5rem !important;
     padding-top: 0.5rem !important;
@@ -437,15 +493,688 @@ Palette e utilizzo dei colori:
     color: #ECFAFF !important;
     border: solid 2px #468189 !important;
     box-shadow: #F87060 0.3rem 0 0 0 !important;
+=======
+/* CSS Pagina dettaglio libro */
+::before,
+::after {
+	content: "";
 }
 
+body {
+	background: #deebef;
+	color: #34495e;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	color: #2c3e50;
+	text-decoration: none;
+}
+
+.btn {
+	display: inline-block;
+	text-transform: uppercase;
+	border: 2px solid #2c3e50;
+	margin-top: 100px; 
+	font-size: 0.7em;
+	font-weight: 700;
+	padding: 0.1em 0.4em;
+	text-align: center;
+	-webkit-transition: color 0.3s, border-color 0.3s;
+	-moz-transition: color 0.3s, border-color 0.3s;
+	transition: color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+	border-color: #16a085;
+	color: #16a085;
+}
+
+/* basic grid, only for this demo */
+
+.align {
+	clear: both;
+	width: 100%;
+	max-width: 1170px;
+	text-align: center;
+}
+
+.align > li {
+	width: 500px;
+	min-height: 300px;
+	display: inline-block;
+	margin: 30px 20px 0 30px;
+	padding: 0 0 0 30px;
+	vertical-align: top;
+}
+
+/* ///////////////////////////////////////////////////
+
+HARDCOVER
+Table of Contents
+
+1. container
+2. background & color
+3. opening cover, back cover and pages
+4. position, transform y transition
+5. events
+6. Bonus
+	- Cover design
+	- Ribbon
+	- Figcaption
+7. mini-reset
+
+/////////////////////////////////////////////////////*/
+
+/*
+	1. container
+*/
+
+.book {
+	position: relative;
+	width: 160px; 
+	height: 220px;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+/*
+	2. background & color
+*/
+
+/* HARDCOVER FRONT */
+.hardcover_front li:first-child {
+	background-color: #eee;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+/* reverse */
+.hardcover_front li:last-child {
+	background: #fffbec;
+}
+
+/* HARDCOVER BACK */
+.hardcover_back li:first-child {
+	background: #fffbec;
+}
+
+/* reverse */
+.hardcover_back li:last-child {
+	background: #fffbec;
+}
+
+.book_spine li:first-child {
+	background: #eee;
+}
+.book_spine li:last-child {
+	background: #333;
+}
+
+/* thickness of cover */
+
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before,
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before,
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before,
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before,
+.book_spine li:first-child:after,
+.book_spine li:first-child:before,
+.book_spine li:last-child:after,
+.book_spine li:last-child:before {
+	background: #999;
+}
+
+/* page */
+
+.page > li {
+	background: -webkit-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+	background: -moz-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+	background: -ms-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+	background: linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+	box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+	border-radius: 0px 5px 5px 0px;
+}
+
+/*
+	3. opening cover, back cover and pages
+*/
+
+.hardcover_front {
+	-webkit-transform: rotateY(-34deg) translateZ(8px);
+	-moz-transform: rotateY(-34deg) translateZ(8px);
+	transform: rotateY(-34deg) translateZ(8px);
+	z-index: 100;
+}
+
+.hardcover_back {
+	-webkit-transform: rotateY(-15deg) translateZ(-8px);
+	-moz-transform: rotateY(-15deg) translateZ(-8px);
+	transform: rotateY(-15deg) translateZ(-8px);
+}
+
+.page li:nth-child(1) {
+	-webkit-transform: rotateY(-28deg);
+	-moz-transform: rotateY(-28deg);
+	transform: rotateY(-28deg);
+}
+
+.page li:nth-child(2) {
+	-webkit-transform: rotateY(-30deg);
+	-moz-transform: rotateY(-30deg);
+	transform: rotateY(-30deg);
+}
+
+.page li:nth-child(3) {
+	-webkit-transform: rotateY(-32deg);
+	-moz-transform: rotateY(-32deg);
+	transform: rotateY(-32deg);
+}
+
+.page li:nth-child(4) {
+	-webkit-transform: rotateY(-34deg);
+	-moz-transform: rotateY(-34deg);
+	transform: rotateY(-34deg);
+}
+
+.page li:nth-child(5) {
+	-webkit-transform: rotateY(-36deg);
+	-moz-transform: rotateY(-36deg);
+	transform: rotateY(-36deg);
+}
+
+/*
+	4. position, transform & transition
+*/
+
+.hardcover_front,
+.hardcover_back,
+.book_spine,
+.hardcover_front li,
+.hardcover_back li,
+.book_spine li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.hardcover_front,
+.hardcover_back {
+	-webkit-transform-origin: 0% 100%;
+	-moz-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+}
+
+.hardcover_front {
+	-webkit-transition: all 0.8s ease, z-index 0.6s;
+	-moz-transition: all 0.8s ease, z-index 0.6s;
+	transition: all 0.8s ease, z-index 0.6s;
+}
+
+/* HARDCOVER front */
+.hardcover_front li:first-child {
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-webkit-transform: translateZ(2px);
+	-moz-transform: translateZ(2px);
+	transform: translateZ(2px);
+}
+
+.hardcover_front li:last-child {
+	-webkit-transform: rotateY(180deg) translateZ(2px);
+	-moz-transform: rotateY(180deg) translateZ(2px);
+	transform: rotateY(180deg) translateZ(2px);
+}
+
+/* HARDCOVER back */
+.hardcover_back li:first-child {
+	-webkit-transform: translateZ(2px);
+	-moz-transform: translateZ(2px);
+	transform: translateZ(2px);
+}
+
+.hardcover_back li:last-child {
+	-webkit-transform: translateZ(-2px);
+	-moz-transform: translateZ(-2px);
+	transform: translateZ(-2px);
+}
+
+/* thickness of cover */
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before,
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before,
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before,
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before,
+.book_spine li:first-child:after,
+.book_spine li:first-child:before,
+.book_spine li:last-child:after,
+.book_spine li:last-child:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* HARDCOVER front */
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before {
+	width: 4px;
+	height: 100%;
+}
+
+.hardcover_front li:first-child:after {
+	-webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	-moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+
+.hardcover_front li:first-child:before {
+	-webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+	-moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+	transform: rotateY(90deg) translateZ(158px) translateX(2px);
+}
+
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before {
+	width: 4px;
+	height: 160px;
+}
+
+.hardcover_front li:last-child:after {
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+}
+.hardcover_front li:last-child:before {
+	box-shadow: 0px 0px 30px 5px #333;
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+}
+
+/* thickness of cover */
+
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before {
+	width: 4px;
+	height: 100%;
+}
+
+.hardcover_back li:first-child:after {
+	-webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	-moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+.hardcover_back li:first-child:before {
+	-webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+	-moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+	transform: rotateY(90deg) translateZ(158px) translateX(2px);
+}
+
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before {
+	width: 4px;
+	height: 160px;
+}
+
+.hardcover_back li:last-child:after {
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+}
+
+.hardcover_back li:last-child:before {
+	box-shadow: 10px -1px 80px 20px #666;
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+}
+
+/* BOOK SPINE */
+.book_spine {
+	-webkit-transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+	-moz-transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+	transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+	width: 16px;
+	z-index: 0;
+}
+
+.book_spine li:first-child {
+	-webkit-transform: translateZ(2px);
+	-moz-transform: translateZ(2px);
+	transform: translateZ(2px);
+}
+
+.book_spine li:last-child {
+	-webkit-transform: translateZ(-2px);
+	-moz-transform: translateZ(-2px);
+	transform: translateZ(-2px);
+}
+
+/* thickness of book spine */
+.book_spine li:first-child:after,
+.book_spine li:first-child:before {
+	width: 4px;
+	height: 100%;
+}
+
+.book_spine li:first-child:after {
+	-webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	-moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+	transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+
+.book_spine li:first-child:before {
+	-webkit-transform: rotateY(-90deg) translateZ(-12px);
+	-moz-transform: rotateY(-90deg) translateZ(-12px);
+	transform: rotateY(-90deg) translateZ(-12px);
+}
+
+.book_spine li:last-child:after,
+.book_spine li:last-child:before {
+	width: 4px;
+	height: 16px;
+}
+
+.book_spine li:last-child:after {
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+}
+
+.book_spine li:last-child:before {
+	box-shadow: 5px -1px 100px 40px rgba(0, 0, 0, 0.2);
+	-webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+	-moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+	transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+}
+
+.page,
+.page > li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.page {
+	width: 100%;
+	height: 98%;
+	top: 1%;
+	left: 3%;
+	z-index: 10;
+}
+
+.page > li {
+	width: 100%;
+	height: 100%;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	transform-origin: left center;
+	-webkit-transition-property: transform;
+	-moz-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-timing-function: ease;
+	transition-timing-function: ease;
+}
+
+.page > li:nth-child(1) {
+	-webkit-transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+}
+
+.page > li:nth-child(2) {
+	-webkit-transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+}
+
+.page > li:nth-child(3) {
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
+
+.page > li:nth-child(4) {
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+}
+
+.page > li:nth-child(5) {
+	-webkit-transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+}
+
+/*
+	5. events
+*/
+
+.book:hover > .hardcover_front {
+	-webkit-transform: rotateY(-145deg) translateZ(0);
+	-moz-transform: rotateY(-145deg) translateZ(0);
+	transform: rotateY(-145deg) translateZ(0);
+	z-index: 0;
+}
+
+.book:hover > .page li:nth-child(1) {
+	-webkit-transform: rotateY(-30deg);
+	-moz-transform: rotateY(-30deg);
+	transform: rotateY(-30deg);
+	-webkit-transition-duration: 1.5s;
+	-moz-transition-duration: 1.5s;
+	transition-duration: 1.5s;
+}
+
+.book:hover > .page li:nth-child(2) {
+	-webkit-transform: rotateY(-35deg);
+	-moz-transform: rotateY(-35deg);
+	transform: rotateY(-35deg);
+	-webkit-transition-duration: 1.8s;
+	-moz-transition-duration: 1.8s;
+	transition-duration: 1.8s;
+}
+
+.book:hover > .page li:nth-child(3) {
+	-webkit-transform: rotateY(-118deg);
+	-moz-transform: rotateY(-118deg);
+	transform: rotateY(-118deg);
+	-webkit-transition-duration: 1.6s;
+	-moz-transition-duration: 1.6s;
+	transition-duration: 1.6s;
+}
+
+.book:hover > .page li:nth-child(4) {
+	-webkit-transform: rotateY(-130deg);
+	-moz-transform: rotateY(-130deg);
+	transform: rotateY(-130deg);
+	-webkit-transition-duration: 1.4s;
+	-moz-transition-duration: 1.4s;
+	transition-duration: 1.4s;
+}
+
+.book:hover > .page li:nth-child(5) {
+	-webkit-transform: rotateY(-140deg);
+	-moz-transform: rotateY(-140deg);
+	transform: rotateY(-140deg);
+	-webkit-transition-duration: 1.2s;
+	-moz-transition-duration: 1.2s;
+	transition-duration: 1.2s;
+}
+
+/*
+	6. Bonus
+*/
+
+/* cover CSS */
+
+.coverDesign {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.coverDesign::after {
+	background-image: -webkit-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
+	background-image: -moz-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
+	background-image: linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.coverDesign h1 {
+	color: #fff;
+	font-size: 2.2em;
+	letter-spacing: 0.05em;
+	text-align: center;
+	margin: 54% 0 0 0;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.1);
+}
+
+.coverDesign p {
+	color: #f8f8f8;
+	font-size: 1em;
+	text-align: center;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.1);
+}
+
+.yellow {
+	background-color: #f1c40f;
+	background-image: -webkit-linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
+	background-image: -moz-linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
+	background-image: linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
+}
+
+.blue {
+	background-color: #3498db;
+	background-image: -webkit-linear-gradient(top, #3498db 58%, #2a90d4 0%);
+	background-image: -moz-linear-gradient(top, #3498db 58%, #2a90d4 0%);
+	background-image: linear-gradient(top, #3498db 58%, #2a90d4 0%);
+}
+
+.grey {
+	background-color: #f8e9d1;
+	background-image: -webkit-linear-gradient(top, #f8e9d1 58%, #e7d5b7 0%);
+	background-image: -moz-linear-gradient(top, #f8e9d1 58%, #e7d5b7 0%);
+	background-image: linear-gradient(top, #f8e9d1 58%, #e7d5b7 0%);
+}
+
+/* Basic ribbon */
+
+.ribbon {
+	background: #c0392b;
+	color: #fff;
+	display: block;
+	font-size: 0.7em;
+	position: absolute;
+	top: 11px;
+	right: 1px;
+	width: 40px;
+	height: 20px;
+	line-height: 20px;
+	letter-spacing: 0.15em; 
+	text-align: center;
+	-webkit-transform: rotateZ(45deg) translateZ(1px);
+	-moz-transform: rotateZ(45deg) translateZ(1px);
+	transform: rotateZ(45deg) translateZ(1px);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 10;
+}
+
+.ribbon::before,
+.ribbon::after{
+	position: absolute;
+	top: -20px;
+	width: 0;
+	height: 0;
+	border-bottom: 20px solid #c0392b;
+	border-top: 20px solid transparent;
+}
+
+.ribbon::before{
+	left: -20px;
+	border-left: 20px solid transparent;
+}
+
+.ribbon::after{
+	right: -20px;
+	border-right: 20px solid transparent;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 37.8125em) {
+	.align > li {
+		width: 100%;
+		min-height: 440px;
+		height: auto;
+		padding: 0;
+		margin: 0 0 30px 0;
+	}
+
+	.book {
+		margin: 0 auto;
+	}
+
+	figcaption {
+		text-align: center;
+		width: 320px;
+		top: 250px;
+		padding-left: 0;
+		left: -80px;
+		font-size: 90%;
+	}
+}
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*@media*/
 
 /*Visibile in small devices*/
 @media (max-width: 768px) {
-    .menuNav, .menu_fine > nav > div:nth-child(2) {
+
+    .menuNav,
+    .menu_fine>nav>div:nth-child(2) {
         display: none !important;
     }
 }
