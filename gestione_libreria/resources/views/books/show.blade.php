@@ -93,13 +93,13 @@
             {{ __('Book Detail') }}
         </h2>
     </x-slot>
-    
+
     <div class="d-flex h-55vh w-100 items-center justify-content-between px-10 my-4">
         <div class="max-w-4xl mx-auto px-6 px-lg-8">
 
         <!-- TODO:allarm mesage -->
                 <div class="row">
-                    <div class="bg-white rounded-lg shadow-xl overflow-hidden mx-3">
+                    <div id='book-3d' class="bg-white rounded-lg shadow-xl overflow-hidden mx-3">
                             <div class="row d-flex justify-content-evenly ps-4 pe-2 pt-5">
                                     <!-- Book Image -->
                                     <div class="col-md-6 col-lg-4">

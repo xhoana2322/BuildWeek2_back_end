@@ -501,7 +501,7 @@ Palette e utilizzo dei colori:
 	content: "";
 }
 
-body {
+#book-id body {
 	background: #deebef;
 	color: #34495e;
 	font-family: 'Lato', 'Arial', sans-serif;
@@ -509,18 +509,18 @@ body {
 	line-height: 1.2;
 }
 
-ul {
+#book-id ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-a {
+#book-id a {
 	color: #2c3e50;
 	text-decoration: none;
 }
 
-.btn {
+#book-id .btn {
 	display: inline-block;
 	text-transform: uppercase;
 	border: 2px solid #2c3e50;
@@ -534,21 +534,21 @@ a {
 	transition: color 0.3s, border-color 0.3s;
 }
 
-.btn:hover {
+#book-id .btn:hover {
 	border-color: #16a085;
 	color: #16a085;
 }
 
 /* basic grid, only for this demo */
 
-.align {
+#book-id .align {
 	clear: both;
 	width: 100%;
 	max-width: 1170px;
 	text-align: center;
 }
 
-.align > li {
+#book-id .align > li {
 	width: 500px;
 	min-height: 300px;
 	display: inline-block;
