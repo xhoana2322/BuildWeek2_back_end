@@ -352,6 +352,92 @@ Palette e utilizzo dei colori:
     border: solid 2px #F87060 !important;
 }
 
+/*Admin Page - Reservation*/
+
+.adminPage h2 {
+    color: #ECFAFF !important;
+    border-radius: 1rem 0 0 0 !important;
+    font-size: 2rem !important;
+    width: 25% !important;
+    border-left: #F87060 solid 4px !important;
+    margin-bottom: 0 !important;
+}
+
+.addButton {
+    border-radius: 0 1.5rem 0 1.5rem !important;
+    border: #ECFAFF solid 2px !important;
+    background-color: transparent !important;
+    padding: 0.5rem 0 !important;
+    width: 15% !important;
+    box-shadow: #F87060 -0.4rem 0 0 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.addButton:hover {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+    box-shadow: #ECFAFF 0.4rem 0 0 0 !important;
+}
+
+.adminTable td {
+    background-color: #ECFAFF !important;
+    color: #468189 !important;
+}
+
+.adminTable th {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    font-weight: bolder !important;
+}
+
+.adminTable th:last-child {
+    border-radius: 0 2rem 0 0 !important;
+}
+
+.adminTable tr:last-child td:first-child {
+    border-radius: 0 0 0 2rem !important;
+    border-bottom: none !important;
+}
+
+.deleteButton {
+    border-radius: 0 1rem 0 1rem !important;
+    border: #F87060 solid 2px !important;
+    background-color: transparent !important;
+    padding: 0.5rem 0.7rem !important;
+    box-shadow: #F87060 -0.3rem 0 0 0 !important;
+}
+
+.deleteButton i {
+    color: #F87060 !important;
+}
+
+.deleteButton:hover i {
+    color: #ECFAFF !important;
+}
+
+.deleteButton:hover {
+    background-color: #F87060 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #F87060 !important;
+    box-shadow: #468189 0.3rem 0 0 0 !important;
+}
+
+.editUser, .confirmReservation {
+    border-radius: 0 1rem 0 1rem !important;
+    border: #468189 solid 2px !important;
+    background-color: transparent !important;
+    padding: 0.5rem 0.7rem !important;
+    box-shadow: #468189 -0.3rem 0 0 0 !important;
+    color: #468189 !important;
+}
+
+.editUser:hover, .confirmReservation:hover {
+    background-color: #468189 !important;
+    color: #ECFAFF !important;
+    border: solid 2px #468189 !important;
+    box-shadow: #F87060 0.3rem 0 0 0 !important;
+}
 
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
