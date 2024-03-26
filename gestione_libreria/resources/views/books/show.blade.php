@@ -88,6 +88,12 @@
 </style>
 
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Book Detail') }}
+        </h2>
+    </x-slot>
+    
     <div class="d-flex h-55vh w-100 items-center justify-content-between px-10 my-4">
         <div class="max-w-4xl mx-auto px-6 px-lg-8">
 
