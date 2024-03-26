@@ -22,7 +22,7 @@ body {
 /*Navbar*/
 
 .navClass {
-    background-color: #46818970 !important;
+    background-color: rgba(70, 129, 137, 0.7) !important;
     position: sticky !important;
     top: 0 !important;
     border: none !important;
@@ -360,8 +360,6 @@ Palette e utilizzo dei colori:
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
-
-
 }
 
 .immagine_card {
@@ -390,22 +388,26 @@ Palette e utilizzo dei colori:
     background-color: #468189 !important;
     color: #ECFAFF !important;
     border: none !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
 }
 
 .tasto_dettaglio:hover {
     background-color: #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #468189 !important;
 }
 
 .tasto_prenota {
     background-color: transparent !important;
     color: #F87060 !important;
     border: solid 2px #F87060 !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
 }
 
 .tasto_prenota:hover {
     background-color: #F87060 !important;
     color: #ECFAFF !important;
     border: solid 2px #F87060 !important;
+    box-shadow: 0.3rem 0 0 0 #468189 !important;
 }
 
 /*Admin Page - Reservation*/
@@ -1163,6 +1165,53 @@ Table of Contents
 		font-size: 90%;
 	}
 }
+
+/*Footer*/
+
+footer {
+    height: 14rem !important;
+    display: flex !important;
+    align-items: center !important;
+    border-top: #F87060 3px solid !important;
+    box-shadow: 0 -0.2rem 0 0 #ECFAFF !important;
+    margin-top: 3rem !important;
+    background-color: #102542 !important;
+}
+
+footer div {
+    width: 30% !important;
+}
+
+footer div p:first-child {
+    color: #F87060 !important;
+    margin-bottom: 2rem !important;
+}
+
+footer div p:last-child {
+    color: #ECFAFF70 !important;
+}
+
+/*Content Page*/
+
+.sendMessage {
+    min-width: 8rem !important;
+    border-radius: 0 1.5rem 0 1.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    background-color: transparent !important;
+    color: #ECFAFF !important;
+    border: solid 2px #ECFAFF !important;
+    box-shadow: -0.3rem 0 0 0 #F87060 !important;
+}
+
+.sendMessage:hover {
+    background-color: #ECFAFF !important;
+    color: #468189 !important;
+    border: solid 2px #ECFAFF !important;
+    box-shadow: 0.3rem 0 0 0 #F87060 !important;
+}
+
+
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*@media*/

@@ -35,14 +35,14 @@
 }
 </style>
 
-<x-app-layout>
+<x-app-layout >
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Contact Us
         </h2>
     </x-slot>
 
-    <div class="py-4">
+    <div class="py-4" style="min-height: 50vh !important">
         <div class="max-w-md mx-auto sm:px-6 lg:px-8 w-50">
         @if(session('success'))
             <div class="bg-opacity-50 backdrop-blur-lg bg-neutral-300 border-l-4 border-green-500 text-green-700 p-4 rounded-md shadow-md flex items-center animate__animated animate__fadeInDown">
@@ -68,8 +68,7 @@
                     <textarea name="message" id="message" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required></textarea>
                 </div>
                 <div class="text-end">
-                    <!-- <button type="submit" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-900 focus:ring focus:ring-blue-200 disabled:opacity-25 transition detailButton border-1">Send Message</button> -->
-                    <button type="submit" class="btn btn-warning tasto_dettaglio p-2 mt-3 spec w-50" style='width: 11rem;'>
+                    <button type="submit" class="sendMessage">
                         Send Message
                     </button>
                 </div>

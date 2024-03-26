@@ -4,22 +4,30 @@
     <p class="h1 mt-3 text-center text-sm-start nome_carosello">{{ $category->CategoryName }}</p>
     <div id="carouselCategory{{ $category->id }}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            @foreach ($books->where('category_id', $category->id)->chunk(5) as $index => $chunk)
+            @foreach ($books->where('category_id', $category->id)->chunk(4) as $index => $chunk)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <div class="d-flex">
+                <div class="d-flex justify-content-center">
                     @foreach ($chunk as $book)
                     <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
                         <img src="{{ $book->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
                         <div class="card-body">
-                            <div class="mb-1 border-bottom">
-                                <p class="card-title fw-bold h5">{{ $book->title }}</p>
-                                <p class="card-subtitle mb-2 text-muted h6">{{ $book->author->name }}</p>
+                            <div class="mb-1"
+                            style="border-bottom: 1px solid #F87060 !important;">
+                                <p class="card-title fw-bold h5"
+                                    style="color: #468189 !important;"
+                                >{{ $book->title }}</p>
+                                <p class="card-subtitle mb-2 text-muted h6"
+                                    style="color: rgba(70, 129, 137, 0.80) !important;"
+                                >{{ $book->author->name }}</p>
                             </div>
-                            <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
-                            <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">Scopri di più</a>
+                            <p class="card-text" style=" color: #102542 !important;">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
+                            <div class="d-flex align-items-center gap-2 mt-4 mb-3">
+                                <i class="bi bi-circle-fill fs-6 text-success" style="font-size: 0.5rem !important;"></i>
+                                <p class="text-success fw-bold fs-6 fw-light" style="font-size: 1rem !important;"> Available</p>
+                            </div>
                             <div class="mt-2 d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-primary tasto_prenota">Prenota</a>
-                                <p class="text-success fw-bold">Disponibile</p>
+                                <a href="#" class="btn btn-primary tasto_prenota">Reserve</a>
+                                <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">View Details</a>
                             </div>
                         </div>
                     </div>
