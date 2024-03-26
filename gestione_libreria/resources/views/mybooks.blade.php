@@ -4,6 +4,14 @@
             {{ __('I miei libri') }}
         </h2>
     </x-slot>
+    @if ($books->isEmpty())
+    <div style="min-height: 100vh;">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-4 mx-4 p-6">
+            <p class="text-gray-700">{{ __('You have no books yet.') }}</p>
+        </div>
+    </div>
+    @else
+    <div style="min-height: 100vh;">
     @foreach($books as $book)
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-4 mx-4">
         <div class="col-md-2 col-sm-3">
@@ -68,6 +76,6 @@
         </div>
     </div>
     @endforeach
-
-
+    </div>
+    @endif
 </x-app-layout>
