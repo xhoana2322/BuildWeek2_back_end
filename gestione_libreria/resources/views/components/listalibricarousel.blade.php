@@ -25,12 +25,14 @@
                                 <i class="bi bi-circle-fill fs-6 text-success" style="font-size: 0.5rem !important;"></i>
                                 <p class="text-success fw-bold fs-6 fw-light" style="font-size: 1rem !important;"> Available</p>
                             </div>
-                            <div class="mt-2 d-flex justify-content-between align-items-center">
+                            <div class="mt-2 gap-2 d-flex justify-content-between align-items-center">
+                            @if ($book->AvailableAmount > 0 && !in_array($book->id, $userPendingReservations))
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
                                 <button type="submit" class="reserveButton btn btn-outline-success">Reserve</button>
                             </form>
+                        @endif
                                 <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">View Details</a>
                             </div>
                         </div>
