@@ -22,10 +22,6 @@
 
                 <!-- Menu -->
                 <div class="menuNav d-flex align-items-center">
-                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage.index')" class="linkNav">
-                        {{ __('Homepage') }}
-                    </x-nav-link>
-
                     <x-nav-link :href="route('listalibri.index')" :active="request()->routeIs('listalibri.index')" class="linkNav">
                         {{ __('Bookshelf') }}
                     </x-nav-link>
