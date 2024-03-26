@@ -11,7 +11,7 @@
                     <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-1 libroCard">
                         <img src="{{ $book->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
                         <div class="card-body">
-                            <div class="mb-1"
+                            <div class="mb-1 d-flex flex-column"
                             style="border-bottom: 1px solid #F87060 !important;">
                                 <p class="card-title fw-bold h5"
                                     style="color: #468189 !important;"
@@ -25,12 +25,12 @@
                                 <i class="bi bi-circle-fill fs-6 text-success" style="font-size: 0.5rem !important;"></i>
                                 <p class="text-success fw-bold fs-6 fw-light" style="font-size: 1rem !important;"> Available</p>
                             </div>
-                            <div class="mt-2 gap-2 d-flex justify-content-between align-items-center">
+                            <div class="mt-2 gap-2 d-flex flex-column justify-content-between align-items-end">
                             @if ($book->AvailableAmount > 0 && !in_array($book->id, $userPendingReservations))
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
-                                <button type="submit" class="reserveButton btn btn-outline-success">Reserve</button>
+                                <button type="submit" class="btn btn-outline-success tasto_prenota">Reserve</button>
                             </form>
                         @endif
                                 <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">View Details</a>
