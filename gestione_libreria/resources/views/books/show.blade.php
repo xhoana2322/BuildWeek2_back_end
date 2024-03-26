@@ -84,18 +84,17 @@
     <div class="d-flex h-55vh w-100 items-center justify-content-between px-10 my-4">
         <div class="max-w-4xl mx-auto px-6 px-lg-8">
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="container row">
+                <div class="row d-flex justify-content-evenly p-8">
                     <!-- Book Image -->
-                    <div class="col-12 col-md-6 col-lg-4 m-2 d-flex justify-content-center bg-fixed">
-                        <img src="{{ $book->image }}" alt="{{ $book->title }}" loading="lazy" class="inset-0 ms-auto w-100 h-100 rounded-bottom-start object-cover object-center mx-2">
-                       
+                    <div class="col-md-6 col-lg-4 m-2">
+                        <img src="{{ $book->image }}" alt="{{ $book->title }}" loading="lazy" class="inset-0 ms-auto w-100 h-100 border rounded-2 mx-3 libroCard immagine_card mx-2">
                     </div>
                     <!-- Book Details -->
-                    <div class="col-12 col-md-6 col-lg-6 container my-4 mx-auto mt-28">
+                    <div class="col-md-6 col-lg-6">
                         <div class="row text-lg-left">
-                            <div class="relative bg-clip-border text-gray-700 rounded-xl border border-white p-8">
-                                <p class="font-weight-bold text-blue-gray-900 lg-text-5xl !leading-snug text-3xl lg-max-w-3xl" style='font-size: 2rem;' >{{ $book->title ?? 'Title not available' }}</p>
-                                <p class="font-sans text-xl font-normal leading-relaxed text-inherit mb-10 mt-2 !text-gray-900 my-1"><author>Author: <span class="fst-italic"> {{ $book->author->name ?? 'Author details not available' }}<span class="fst-normal">, {{$book->year}} </span> </span></author></p>
+                            <div class="relative bg-clip-border text-gray-700 rounded-xl border border-white">
+                                <p class="fw-bold text-blue-gray-900 lg-text-5xl !leading-snug text-3xl lg-max-w-3xl" style='font-size: 2.5rem;' >{{ $book->title ?? 'Title not available' }}</p>
+                                <p class="font-sans text-xl font-normal leading-relaxed text-inherit mb-10 !text-gray-900 my-1 lh-1"><author><span class="fst-italic"> {{ $book->author->name ?? 'Author details not available' }}<span class="fst-normal">, {{$book->year}} </span> </span></author></p>
                                 <!-- Rating and Reservation -->
                                 <!-- <div class="mb-8 d-flex  gap-4 lg-justify-start my-3">
                                     <p class="text-base text-yellow-600  lg-justify-end ">Rating: <span class="font-weight-bold">4.5</span></p>
@@ -109,10 +108,10 @@
                                             C22.602,0.567,25.338,0.567,26.285,2.486z"/>
                                     </svg>
                                 </div> -->
-                                <div class="my-2">
-                                    <h3 class="text-xl font-weight-bold text-gray-900">Plot</h3>
+                                <div class="mt-4 mb-2">
+                                    <h3 class="text-xl font-weight-bold text-gray-900 lh-1">Plot</h3>
                                     <p class="mt-2 text-base text-gray-600">{{ $book->plot ?? 'Plot details not available.' }}</p>
-                                    <div class="d-flex justify-content-between text-center mt-6">
+                                    <div class="d-flex justify-content-between text-center mt-3">
                                         <p class="font-sans font-normal leading-relaxed text-gray-900 mb-2">
                                             <span>{{ $book->category->CategoryName ?? 'Category not available' }}</span>
                                         </p>
@@ -138,7 +137,7 @@
                             <form action="{{ route('reservation.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
-                            <button type="submit" class="btn btn-warning tasto_dettaglio w-50 p-2 mt-3 spec">
+                            <button type="submit" class="btn btn-warning tasto_dettaglio p-2 mt-3 spec" style='width: 11rem;'>
                                 Reserve Now
                                 <span class="wrap" aria-hidden="true">
                                     <span class="particle" style="--a: -45deg; --x: 53%; --y: 15%; --d: 4em; --f: .7; --t: .15"></span>
@@ -160,40 +159,45 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Book Plot/Description -->
+                
+                <!-- flower separator -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="" style="margin-right: 0.5rem; width: 20rem;">
+                        <div style="height: 0.1rem; background-color: #F87060; width: 100%;"></div>
+                    </div>
+                    <p class="h2 fw-light">&#x2740;</p>
+                    <div class="d-flex flex-column justify-content-center align-items-center" style="margin-left: 0.5rem; width: 20rem;">
+                        <div style="height: 0.1rem; background-color: #F87060; width: 100%;"></div>
+                    </div>
+                </div>
+                
+                <!-- you might also like section -->
                 <div class="row m-3">
-                    <div class="col-12 mt-4">
+                    <div class="col-12 mt-2">
                         <p class="fs-4 fw-bold text-gray-900 text-center">You might also like</p>
-                        <div class="container-fluid listaLibri mt-5">
+                        <div class="container-fluid listaLibri mt-4">
                                 @php
                                     // Get books of the same category
                                     $relatedBooks = App\Models\Book::where('category_id', $book->category_id)
                                                         ->where('id', '!=', $book->id) 
+                                                        ->take(4)
                                                         ->get();
                                 @endphp
                             @if ($relatedBooks->count() > 0)
-                                <div>
-                                    <div>
-                                        @foreach ($relatedBooks->chunk(5) as $index => $chunk)
-                                            <div class="{{ $index === 0 ? 'active' : '' }}">
-                                                <div class="d-flex justify-content-center">
-                                                    @foreach ($chunk as $relatedBook)
-                                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
-                                                            <img src="{{ $relatedBook->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $relatedBook->title }}">
-                                                            <div class="card-body">
-                                                                <div class="mb-1 border-bottom">
-                                                                    <p class="card-title fw-bold h5">{{ $relatedBook->title }}</p>
-                                                                    <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
-                                                                </div>
-                                                                <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
-                                                                <!-- Add more actions or details if needed -->
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
+                                <div class="d-flex justify-content-evenly">
+                                    @foreach ($relatedBooks as $relatedBook)
+                                        <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard" style='width: 10rem;'>
+                                            <img src="{{ $relatedBook->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $relatedBook->title }}">
+                                            <div class="card-body">
+                                                <div class="card-text">
+                                                    <p class="card-title fw-bold h5">{{ $relatedBook->title }}</p>
+                                                    <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
                                                 </div>
+                                                <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
+                                                <!-- Add more actions or details if needed -->
                                             </div>
-                                        @endforeach
-                                    </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             @else
                                 <p>No similar books found.</p>
