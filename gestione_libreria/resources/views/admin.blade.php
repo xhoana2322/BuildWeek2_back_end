@@ -12,20 +12,20 @@
 
 <body>
     <x-app-layout>
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between mt-5 mb-3">
-            <h2>Users</h2>
-            <a class="btn btn-primary btn-sm" href="/admin/create">
+    <div class="adminPage container">
+        <div class="d-flex align-items-center justify-content-between mt-5">
+            <h2 class="pt-2 pb-4 ps-3 fw-bold">Users</h2>
+            <a class="addButton btn btn-primary btn-sm" href="/admin/create">
                 <i class="fas fa-user-plus"></i> Add new user
             </a>
         </div>
-        <table class="table table-hover">
+        <table class="adminTable table table-hover">
             <tr>
-                <th>ID</th>
-                <th class="col-3">Name</th>
-                <th class="col-4">Email</th>
-                <th class="col-1">Admin</th>
-                <th class="col-1">Action</th>
+                <th class="col-3">ID</th>
+                <th class="col-3">User</th>
+                <th class="col-3">Email</th>
+                <th class="col-2">Admin</th>
+                <th class="col-1">Actions</th>
             </tr>
             @foreach ($users as $user)
             <tr>
@@ -33,14 +33,14 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->is_admin == '1' ? 'Yes' : 'No' }}</td>
-                <td class="d-flex gap-1">
-                    <a class="btn btn-warning btn-sm" href="/admin/{{ $user->id }}/edit">
+                <td class="d-flex gap-3">
+                    <a class="editUser btn btn-warning btn-sm" href="/admin/{{ $user->id }}/edit">
                         <i class="fas fa-user-edit"></i>
                     </a>
                     <form action="/admin/{{ $user->id }}" method="POST" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">
+                        <button type="submit" class="deleteButton btn btn-danger btn-sm">
                             <i class="fas fa-user-times"></i>
                         </button>
                     </form>
@@ -49,15 +49,15 @@
             @endforeach
         </table>
 
-        <h2 class="mt-5 mb-3">Reservations</h2>
+        <h2 class="mt-5 pt-2 pb-4 ps-3 fw-bold">Reservations</h2>
 
-        <table class="table table-hover">
+        <table class="adminTable table table-hover mb-5">
             <tr>
-                <th>Book</th>
+                <th class="col-3">Book</th>
                 <th class="col-3">User</th>
-                <th class="col-4">Email</th>
-                <th class="col-1">Status</th>
-                <th class="col-1">Action</th>
+                <th class="col-3">Email</th>
+                <th class="col-2">Status</th>
+                <th class="col-1">Actions</th>
             </tr>
             @if (count($reservations) > 0)
             @foreach ($reservations as $reservation)
@@ -66,14 +66,14 @@
                 <td>{{ $reservation->user->name }}</td>
                 <td>{{ $reservation->user->email }}</td>
                 <td>{{ $reservation->status }}</td>
-                <td class="d-flex gap-1">
-                    <a class="btn btn-success btn-sm" href="{{ route('admin.confirmReservation', $reservation->id) }}">
+                <td class="d-flex gap-3">
+                    <a class="confirmReservation btn btn-success btn-sm" href="{{ route('admin.confirmReservation', $reservation->id) }}">
                         <i class="far fa-check-circle"></i>
                     </a>
                     <form action="{{ route('admin.rejectReservation', $reservation->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">
+                        <button type="submit" class="deleteButton btn btn-danger btn-sm">
                             <i class="far fa-times-circle"></i>
                         </button>
                     </form>
