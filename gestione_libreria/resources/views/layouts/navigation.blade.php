@@ -34,6 +34,10 @@
                         {{ __('My Books') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="linkNav">
+                        {{ __('Contact Us') }}
+                    </x-nav-link>
+
                     @if (Auth::check())
                         @if (Auth::user()->is_admin == 1)
                             <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')" class="linkNav">
