@@ -1,38 +1,40 @@
 <style>
     @property --k {
-    syntax: '<number>';
-    initial-value: -1;
-    inherits: true;
-}
-
-.spec {
-    --m: 1 !important;
-    grid-area: 2/ 1/ span 1/ span 2 !important;
-    position: relative !important;
-    margin: 1em !important;
-    border: solid 2em transparent !important;
-    padding: 1.5em 3.25em !important;
-    border-radius: 5em !important;
-    box-shadow: inset 0 0 1px #23429e !important;
-    background:
-        radial-gradient(#92372d, 67.5%, #F87060) padding-box,
-        radial-gradient(#a0c2ed, 35%, #a0c2ed00 70%) 50% 0/ 80% 50% repeat-y !important;
-    color: #f2fdfe !important;
-    font: 700 1.25em/ 1 montserrat, sans-serif !important;
+        syntax: '<number>';
+        initial-value: -1;
+        inherits: true;
     }
- 
-   .spec:hover{
+
+    .spec {
+        --m: 1 !important;
+        grid-area: 2/ 1/ span 1/ span 2 !important;
+        position: relative !important;
+        margin: 1em !important;
+        border: solid 2em transparent !important;
+        padding: 1.5em 3.25em !important;
+        border-radius: 5em !important;
+        box-shadow: inset 0 0 1px #23429e !important;
         background:
-        radial-gradient(#2d3092, 67.5%, #7ecef6) padding-box,
-        radial-gradient(#a0c2ed, 35%, #a0c2ed00 70%) 50% 0/ 80% 50% repeat-y !important;
+            radial-gradient(#92372d, 67.5%, #F87060) padding-box,
+            radial-gradient(#a0c2ed, 35%, #a0c2ed00 70%) 50% 0/ 80% 50% repeat-y !important;
+        color: #f2fdfe !important;
+        font: 700 1.25em/ 1 montserrat, sans-serif !important;
+    }
+
+    .spec:hover {
+        background:
+            radial-gradient(#2d3092, 67.5%, #7ecef6) padding-box,
+            radial-gradient(#a0c2ed, 35%, #a0c2ed00 70%) 50% 0/ 80% 50% repeat-y !important;
 
     }
 
-@keyframes k {
-    0%, 33.3% {
-        --k: 1;
+    @keyframes k {
+
+        0%,
+        33.3% {
+            --k: 1;
+        }
     }
-}
 </style>
 
 <x-app-layout >
@@ -41,6 +43,9 @@
             Contact Us
         </h2>
     </x-slot>
+    <div style="min-height: 100vh;">
+        @component('components.duck-movement')
+        @endcomponent
 
     <div class="py-4" style="min-height: 50vh !important">
         <div class="max-w-md mx-auto sm:px-6 lg:px-8 w-50">

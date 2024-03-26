@@ -7,6 +7,7 @@
             @foreach ($books->where('category_id', $category->id)->chunk(4) as $index => $chunk)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                 <div class="d-flex justify-content-center">
+
                     @foreach ($chunk as $book)
                     <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
                         <img src="{{ $book->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
@@ -28,6 +29,17 @@
                             <div class="mt-2 d-flex justify-content-between align-items-center">
                                 <a href="#" class="btn btn-primary tasto_prenota">Reserve</a>
                                 <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio">View Details</a>
+                            <p class="card-text">{{ substr($book->plot, 0, 20) }}<span>...</span></p>
+                            <a href="books/{{ $book->id }}" class="btn btn-primary tasto_dettaglio mt-2">Read more</a>
+                            <div class="mt-2 d-flex justify-content-between align-items-center">
+                                <form action="{{ route('reservation.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="book_id" value="{{ $book->id }}">
+                                    @if ($book->AvailableAmount > 0 && !collect($userPendingReservations)->contains($book->id))
+                                        <button type="submit" class="reserveButton btn btn-outline-success">Reserve</button>
+                                    @endif
+                                </form>
+                                <p class="text-success fw-bold">{{ $book->AvailableAmount > 0 ? 'Available' : 'Not Available' }}</p>
                             </div>
                         </div>
                     </div>
