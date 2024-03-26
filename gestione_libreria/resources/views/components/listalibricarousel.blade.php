@@ -8,7 +8,7 @@
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                 <div class="d-flex justify-content-center">
                     @foreach ($chunk as $book)
-                    <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard">
+                    <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-1 libroCard">
                         <img src="{{ $book->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $book->title }}">
                         <div class="card-body">
                             <div class="mb-1"
