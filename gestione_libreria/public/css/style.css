@@ -132,14 +132,14 @@ body {
     box-shadow: 0.3rem 0 0 0 #F87060 !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) {
+.dropdownGroupNav div>div:nth-child(2) {
     margin-top: 1rem !important;
     border: none !important;
     border-radius: 0rem 0rem 1rem 1rem !important;
     box-shadow: none !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) div {
+.dropdownGroupNav div>div:nth-child(2) div {
     background-color: #ECFAFF !important;
     backdrop-filter: blur(5px) !important;
     border: none !important;
@@ -151,7 +151,7 @@ body {
     box-shadow: 0.5rem 0 0 0 #F87060 !important;
 }
 
-.dropdownGroupNav div > div:nth-child(2) div a {
+.dropdownGroupNav div>div:nth-child(2) div a {
     color: #468189 !important;
     font-size: 1rem !important;
     backdrop-filter: blur(5px) !important;
@@ -159,7 +159,7 @@ body {
 }
 
 
-.dropdownGroupNav div > div:nth-child(2) div a:hover {
+.dropdownGroupNav div>div:nth-child(2) div a:hover {
     color: #F87060 !important;
     border-left: solid 2px #F87060 !important;
 }
@@ -220,7 +220,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    opacity: 1; /* Rendi il livello sempre visibile */
+    opacity: 1;
+    /* Rendi il livello sempre visibile */
 }
 
 .overlay h2 {
@@ -232,7 +233,7 @@ body {
     margin-left: 0rem !important;
     position: absolute !important;
     top: 0 !important;
-    text-transform: uppercase !important; 
+    text-transform: uppercase !important;
     font-weight: 900 !important;
     backdrop-filter: blur(2px) !important;
 }
@@ -254,8 +255,8 @@ body {
 /*Listalibri*/
 
 .cardBook {
-    background: rgb(236,250,255);
-    background: linear-gradient(270deg, rgba(236,250,255,1) 90%, rgba(70,129,137,1) 96%);
+    background: rgb(236, 250, 255);
+    background: linear-gradient(270deg, rgba(236, 250, 255, 1) 90%, rgba(70, 129, 137, 1) 96%);
     border: solid 2px #468189 !important;
     box-shadow: none !important;
     backdrop-filter: blur(5px) !important;
@@ -324,24 +325,28 @@ Palette e utilizzo dei colori:
 
 */
 
-.menu_fine > nav > div:nth-child(2) {
+.menu_fine>nav>div:nth-child(2) {
     display: flex !important;
     flex-direction: column-reverse !important;
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) a {
     background-color: transparent !important;
     color: #ECFAFF !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:first-child span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) span a:hover, .menu_fine > nav > div:nth-child(2) > div:nth-child(2) a:hover {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:first-child span:first-child:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:nth-child(2) span:first-child:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span a:hover,
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) a:hover {
     color: #F87060 !important;
     border: #F87060 solid 1px !important;
 }
 
-.menu_fine > nav > div:nth-child(2) > div:nth-child(2) span:nth-child(2) span:first-child {
+.menu_fine>nav>div:nth-child(2)>div:nth-child(2) span:nth-child(2) span:first-child {
     border: #F87060 solid 1px !important;
 }
 
@@ -350,30 +355,31 @@ Palette e utilizzo dei colori:
 
 .libroCard {
     border-radius: 0 2rem 0 2rem !important;
-    background: rgb(236,250,255) !important;
-    background: linear-gradient(0deg, rgba(236,250,255,1) 63%, rgba(70,129,137,1) 64%) !important;
+    background: rgb(236, 250, 255) !important;
+    background: linear-gradient(0deg, rgba(236, 250, 255, 1) 63%, rgba(70, 129, 137, 1) 64%) !important;
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
-    
-    
+
+
 }
 
-.immagine_card{ 
+.immagine_card {
     border: solid 0.5rem #468189 !important;
     border-radius: 0 2rem 0 2rem !important;
     box-shadow: 0 0.3rem 0 0 #F87060 !important;
 }
 
 .nome_carosello {
-  color: #ECFAFF;
-  border-bottom: solid 2px #F87060;
-  border-radius: 0 0 0 2rem !important;
-  padding-left: 2rem;
-  padding-bottom: 0.3rem;
+    color: #ECFAFF;
+    border-bottom: solid 2px #F87060;
+    border-radius: 0 0 0 2rem !important;
+    padding-left: 2rem;
+    padding-bottom: 0.3rem;
 }
 
-.tasto_prenota, .tasto_dettaglio {
+.tasto_prenota,
+.tasto_dettaglio {
     min-width: 8rem !important;
     border-radius: 0 1.5rem 0 1.5rem !important;
     padding-top: 0.5rem !important;
@@ -402,18 +408,11 @@ Palette e utilizzo dei colori:
     border: solid 2px #F87060 !important;
 }
 
-
-
 /* CSS Pagina dettaglio libro */
-
-
-
 ::before,
 ::after {
 	content: "";
 }
-
-
 
 body {
 	background: #deebef;
@@ -1081,21 +1080,15 @@ Table of Contents
 		font-size: 90%;
 	}
 }
-
-
-
-
-
-
-
-
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*@media*/
 
 /*Visibile in small devices*/
 @media (max-width: 768px) {
-    .menuNav, .menu_fine > nav > div:nth-child(2) {
+
+    .menuNav,
+    .menu_fine>nav>div:nth-child(2) {
         display: none !important;
     }
 }

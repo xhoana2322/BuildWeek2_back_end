@@ -224,11 +224,11 @@ $relatedBooks = App\Models\Book::where('category_id', $book->category_id)
                                         <div class="card bg-light my-3 col-lg-2 col-md-3 col-sm-4 border rounded-2 mx-3 libroCard" style='width: 10rem;'>
                                             <img src="{{ $relatedBook->image }}" class="card-img-top border rounded-2 immagine_card" alt="{{ $relatedBook->title }}">
                                             <div class="card-body">
-                                                <div class="card-text">
+                                                <div class="card-text mb-5">
                                                     <p class="card-title fw-bold h5">{{ $relatedBook->title }}</p>
-                                                    <p class="card-subtitle mb-2 text-muted h6">{{ $relatedBook->author->name }}</p>
+                                                    <p class="card-subtitle mb-4 text-muted h6">{{ $relatedBook->author->name }}</p>
                                                  </div>
-                                             <a href="books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio mt-2">Scopri di più</a>
+                                             <a href="/books/{{ $relatedBook->id }}" class="btn btn-primary tasto_dettaglio position-absolute bottom-0 mb-2">More info</a>
                                           </div>
                                        </div>
                                      @endforeach

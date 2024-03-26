@@ -5,7 +5,7 @@
             <div class="brandLink flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('homepage.index') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -22,10 +22,21 @@
 
                 <!-- Menu -->
                 <div class="menuNav d-flex align-items-center">
+                    <x-nav-link :href="route('homepage.index')" :active="request()->routeIs('homepage.index')" class="linkNav">
+                        {{ __('Homepage') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('listalibri.index')" :active="request()->routeIs('listalibri.index')" class="linkNav">
                         {{ __('Bookshelf') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('mybooks.index')" :active="request()->routeIs('mybooks.index')" class="linkNav">
+                        {{ __('My Books') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="linkNav">
+                        {{ __('Contact Us') }}
+                    </x-nav-link>
 
                     @if (Auth::check())
                         @if (Auth::user()->is_admin == 1)
@@ -34,6 +45,8 @@
                             </x-nav-link>
                         @endif
                     @endif
+
+                    
                 </div>
             </div>
 

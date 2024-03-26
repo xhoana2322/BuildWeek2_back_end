@@ -69,7 +69,8 @@ class RegisteredUserController extends Controller
         if (Auth::user()->is_admin == '1') {
             return view('admin', ['books' => $books, 'reservations' => $reservations, 'users' => $users]);
         } else {
-            return view('auth.login', ['users' => $users], ['categories' => $categories]);
+            Auth::logout();
+            return view('auth.login');
         }
           }
 
