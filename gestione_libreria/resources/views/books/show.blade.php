@@ -87,12 +87,66 @@
         <!-- TODO:allarm mesage -->
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div class="row d-flex justify-content-evenly p-8">
+
+
+
+
+
+
+                
                     <!-- Book Image -->
-                    <div class="col-md-6 col-lg-4 m-2">
-                        <img src="{{ $book->image }}" alt="{{ $book->title }}" loading="lazy" class="inset-0 ms-auto w-100 h-100 border rounded-2 mx-3 libroCard immagine_card mx-2">
+                    <div class="col-md-6 col-lg-4">
+                      
+                    <div class="component ms-4">
+				<ul class="align">
+					<li>
+						<figure class='book'>
+
+							<!-- Front -->
+
+							<ul class='hardcover_front'>
+								<li>
+									<div class="coverDesign blue">
+										<img src="{{ $book->image }}" alt="{{ $book->title }}">
+                    
+									</div>
+								</li>
+								<li></li>
+							</ul>
+
+							<!-- Pages -->
+
+							<ul class='page'>
+								<li></li>
+								<li>
+                  <p class="mt-5">Accat't o' libr</p>
+                    <p>🤡</p>
+								</li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+
+							<!-- Back -->
+
+							<ul class='hardcover_back'>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul class='book_spine'>
+								<li></li>
+								<li></li>
+							</ul>
+							
+						</figure>
+					</li>
+				</ul>
+			</div>
+	
+
                     </div>
                     <!-- Book Details -->
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-6 col-lg-6" style='margin-top: 5rem;'>
                         <div class="row text-lg-left">
                             <div class="relative bg-clip-border text-gray-700 rounded-xl border border-white">
                                 <p class="fw-bold text-blue-gray-900 lg-text-5xl !leading-snug text-3xl lg-max-w-3xl" style='font-size: 2.5rem;' >{{ $book->title ?? 'Title not available' }}</p>
@@ -182,11 +236,11 @@
                         <p class="fs-4 fw-bold text-gray-900 text-center">You might also like</p>
                         <div class="container-fluid listaLibri mt-4">
                                 @php
-                                    // Get books of the same category
-                                    $relatedBooks = App\Models\Book::where('category_id', $book->category_id)
-                                                        ->where('id', '!=', $book->id) 
-                                                        ->take(4)
-                                                        ->get();
+// Get books of the same category
+$relatedBooks = App\Models\Book::where('category_id', $book->category_id)
+    ->where('id', '!=', $book->id)
+    ->take(4)
+    ->get();
                                 @endphp
                             @if ($relatedBooks->count() > 0)
                                 <div class="d-flex justify-content-evenly">
