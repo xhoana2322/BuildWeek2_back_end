@@ -113,14 +113,12 @@
                                                     <li>
                                                         <div class="coverDesign blue">
                                                             <img src="{{ $book->image }}" alt="{{ $book->title }}">
-                                        
                                                         </div>
                                                     </li>
                                                     <li></li>
                                                 </ul>
 
                                                 <!-- Pages -->
-
                                                 <ul class='page'>
                                                     <li></li>
                                                     <li class="text-center">
