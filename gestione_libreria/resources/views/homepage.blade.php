@@ -9,7 +9,7 @@
 
 <body>
     <x-app-layout>
-        <div class="bg-dark">
+        <div>
             <div class="hero bg-primary" style="margin-top: 0rem; height: 30rem;">
                 <!-- Carosello Hero -->
                 @include ('components.herocarousel')
