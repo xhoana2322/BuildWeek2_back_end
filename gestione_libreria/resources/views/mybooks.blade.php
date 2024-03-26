@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('I miei libri') }}
+            {{ __('My Books') }}
         </h2>
     </x-slot>
     @foreach($books as $book)
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-4 mx-4">
+    <div class="cardBook bg-white overflow-hidden shadow-sm sm:rounded-lg flex my-4 mx-4">
         <div class="col-md-2 col-sm-3">
             <img src="{{ $book->image }}" class="w-full h-auto p-3" alt="{{ $book->title }}">
         </div>
@@ -45,7 +45,7 @@
                     <form action="{{ route('reservation.return', $reservation->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                        <button type="submit" class="reserveButton btn btn-outline-danger btn-sm">
                             Return book
                         </button>
                     </form>
