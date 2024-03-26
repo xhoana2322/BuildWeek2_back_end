@@ -99,7 +99,9 @@
 
         <!-- TODO:allarm mesage -->
                 <div class="row">
-                    <div id='book-3d' class="bg-white rounded-lg shadow-xl overflow-hidden mx-3">
+                    <div id='book-3d' class="bg-white rounded-lg shadow-xl overflow-hidden mx-3"
+                    style="background-color: #ECFAFF !important;
+                    border-radius: 0 2rem 0 2rem !important">
                             <div class="row d-flex justify-content-evenly ps-4 pe-2 pt-5">
                                     <!-- Book Image -->
                                     <div class="col-md-6 col-lg-4">
@@ -148,25 +150,25 @@
                     <!-- Book Details -->
                     <div class="col-md-5 col-lg-5">
                         <div class="row text-lg-left">
-                            <div class="relative bg-clip-border text-gray-700 rounded-xl border border-white">
-                                <p class="fw-bold text-blue-gray-900 lg-text-5xl !leading-snug text-3xl lg-max-w-3xl" style='font-size: 2.5rem;' >{{ $book->title ?? 'Title not available' }}</p>
-                                <p class="font-sans text-xl font-normal leading-relaxed text-inherit mb-10 !text-gray-900 my-1 lh-1"><author><span class="fst-italic"> {{ $book->author->name ?? 'Author details not available' }}<span class="fst-normal">, {{$book->year}} </span> </span></author></p>
+                            <div class="relative bg-clip-border text-gray-700 rounded-xl">
+                                <p class="fw-bold text-blue-gray-900 lg-text-5xl !leading-snug text-3xl lg-max-w-3xl" style='font-size: 2.5rem; color: #F87060;' >{{ $book->title ?? 'Title not available' }}</p>
+                                <p class="font-sans text-xl font-normal leading-relaxed text-inherit mb-10 !text-gray-900 my-1 lh-1" style="color: #468189 !important"><author><span class="fst-italic" style="color: #468189 !important"> {{ $book->author->name ?? 'Author details not available' }}<span class="fst-normal">, {{$book->year}} </span> </span></author></p>
                                 <div class="mt-4 mb-2">
-                                    <h3 class="text-xl font-weight-bold text-gray-900 lh-1">Plot</h3>
-                                    <p class="mt-2 text-base text-gray-600">{{ $book->plot ?? 'Plot details not available.' }}</p>
+                                    <h3 class="text-xl font-weight-bold text-gray-900 lh-1" style="color: #F87060 !important; ">Plot</h3>
+                                    <p class="mt-2 text-base text-gray-600" style="color: #468189 !important">{{ $book->plot ?? 'Plot details not available.' }}</p>
                                     <div class="d-flex justify-content-between text-center mt-3">
-                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-2">
+                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-2 style="color: #468189 !important"" >
                                             <span>{{ $book->category->CategoryName ?? 'Category not available' }}</span>
                                         </p>
                                         <p> | </p>
                                         <!-- <i class="bi bi-dot"></i> -->
-                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-4">
+                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-4 " style="color: #468189 !important">
                                             <span>{{ $book->pages ?? 'Not specified' }}</span>
                                             <span class="font-weight-bold">pages</span>
                                         </p>
                                         <p> | </p>
                                         <!-- <i class="bi bi-dot"></i> -->
-                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-4">
+                                        <p class="font-sans font-normal leading-relaxed text-gray-900 mb-4" style="color: #468189 !important">
                                             <span class="font-weight-bold">Copies available:</span>
                                             <span>{{ $book->AvailableAmount ?? 'Not specified' }}</span>
                                         </p>
@@ -210,7 +212,7 @@
                     <div class="" style="margin-right: 0.5rem; width: 20rem;">
                         <div style="height: 0.1rem; background-color: #F87060; width: 100%;"></div>
                     </div>
-                    <p class="h2 fw-light">&#x2740;</p>
+                    <p class="h2 fw-light" style="color: #468189 !important">&#x2740;</p>
                     <div class="d-flex flex-column justify-content-center align-items-center" style="margin-left: 0.5rem; width: 20rem;">
                         <div style="height: 0.1rem; background-color: #F87060; width: 100%;"></div>
                     </div>
@@ -220,7 +222,7 @@
                 <!-- you might also like section -->
                 <div class="row m-3">
                     <div class="col-12 mt-2">
-                        <p class="fs-4 fw-bold text-gray-900 text-center">You might also like</p>
+                        <p class="fs-4 fw-bold text-gray-900 text-center" style="color: #468189 !important">You might also like</p>
                         <div class="container-fluid listaLibri mt-4">
                                 @php
 // Get books of the same category
