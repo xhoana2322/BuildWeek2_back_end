@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
@@ -44,7 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/listalibri', [BookController::class, 'index'])->name('listalibri.index');
 });
 Route::resource('homepage', CategoryController::class);
-
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::resource('admin', RegisteredUserController::class);
 Route::get('/admin/{id}/confirmReservation', [RegisteredUserController::class, 'confirmReservation'])->name('admin.confirmReservation');
 Route::delete('/admin/{id}/rejectReservation', [RegisteredUserController::class, 'rejectReservation'])->name('admin.rejectReservation');
